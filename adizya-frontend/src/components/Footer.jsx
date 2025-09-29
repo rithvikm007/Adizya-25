@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 
+
 const Footer = () => {
   const iconSize = 200;
   const instagramLink = "https://www.instagram.com/";
