@@ -1,7 +1,9 @@
 --root {
-    --placeholder-color: #D4DBF7;
+  --placeholder-color: #d4dbf7;
 }
 .bg-paper {
-    background-image: url('../../../public/imgs/register-bg.png'), url('../../../public/imgs/background.png');    
-    background-blend-mode: lighten;
+  background-image: url("../../../public/imgs/register-bg.png"),
+    url("../../../public/imgs/background.png");
+  background-blend-mode: lighten;
+  background-size: cover;
 }

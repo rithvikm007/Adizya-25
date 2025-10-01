@@ -1,0 +1,177 @@
+import localFont from "next/font/local";
+import TeamSection from "./section";
+import Image from "next/image";
+
+const teamsMems = [
+  {
+    committee: "PROGRAM COMMITEE",
+    image1Src: "/imgs/teams/hanna.png",
+    image1Name: "HANNA",
+    image2src: "/imgs/teams/rey.png",
+    image2name: "REYAN",
+    description:
+      "Hanna and Reyan breathe life into ADIZYA’s vibrant lineup. From coordinating lectures and workshops to organizing competitions and talk shows, they create the exciting, engaging programs that define the festival.",
+  },
+  {
+    committee: "PUBLIC RELATIONS COMMITEE (PRC)",
+    image1Src: "/imgs/teams/niya.png",
+    image1Name: "NIYA",
+    image2src: "/imgs/teams/niranjana.png",
+    image2name: "NIRANJANA",
+    description:
+      "Charged with spreading the word, Niranjana and Niya lead efforts to promote ADIZYA across campuses. Their outreach ensures maximum participation and an enthusiastic audience for every event.",
+  },
+  {
+    committee: "MARKETING COMMITEE",
+    image1Src: "/imgs/teams/abhinav.png",
+    image1Name: "ABHINAV",
+    image2src: "/imgs/teams/haniya.png",
+    image2name: "HANIYA",
+    description:
+      "Haniya and Abhinav spearhead sponsorship acquisition, securing essential support from companies and organizations. They also welcome and mentor junior committee members to sustain and grow the team’s strengths.",
+  },
+  {
+    committee: "MEDIA TEAM",
+    image1Src: "/imgs/teams/chaman.png",
+    image1Name: "CHAMAN",
+    image2src: "/imgs/teams/parthav.png",
+    image2name: "PARTHAV",
+    description:
+      "Capturing every moment, Chaman and Parthav’s media team produces captivating videos, podcasts, and behind-the-scenes content. Their work not only documents the festival but also sharpens skills in photography, videography, and editing.",
+  },
+  {
+    committee: "CONTENT TEAM",
+    image1Src: "/imgs/teams/siri.png",
+    image1Name: "SIRI",
+    image2src: "/imgs/teams/siri.png",
+    image2name: "SARAYU",
+    description:
+      "The wordsmiths of ADIZYA, Siri and Sarayu craft all written material—from official communications to creative scripts—ensuring the festival’s message is clear, engaging, and inspiring.",
+  },
+  {
+    committee: "DESIGN TEAM",
+    image1Src: "/imgs/teams/jahnavi.png",
+    image1Name: "JAHNAVI",
+    image2src: "/imgs/teams/nadia.png",
+    image2name: "NADIA",
+    description:
+      "Jahnavi and Nadia shape the visual identity of ADIZYA through stunning posters, brochures, and digital designs. They welcome beginners eager to develop their design skills alongside the team.",
+  },
+  {
+    committee: "POSTER AND DESIGN (PAD) TEAM",
+    image1Src: "/imgs/teams/yadu.png",
+    image1Name: "YADURAJ",
+    image2src: "/imgs/teams/abhinaash.png",
+    image2name: "ABHINAASH",
+    description:
+      "The architects of experience, Yaduraj and Abhinaash handle all spatial and visual elements including models, installations, and décor, transforming ideas into immersive festival environments.",
+  },
+  {
+    committee: "HOSPITALITY TEAM",
+    image1Src: "/imgs/teams/ayush.png",
+    image1Name: "AYUSH",
+    image2src: "/imgs/teams/ayush.png",
+    image2name: "FINU",
+    description:
+      "Ayush and Finu ensure that every guest feels welcomed and cared for. From coordinating arrival and accommodation to managing refreshment needs, they are the gracious hosts that make ADIZYA inviting and comfortable.",
+  },
+];
+
+const hornset = localFont({ src: "../../../public/fonts//Hornset.ttf" });
+const pearlJean = localFont({ src: "../../../public/fonts/PearlJean.otf" });
+const TeamsPage = () => {
+  return (
+    <div className="bg-[url('../../public/imgs/background.png')] bg-cover text-[#040404]">
+      <div className="flex flex-col p-8  items-center justify-center">
+        <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
+          MEET THE
+        </h3>
+        <h1 className="text-5xl sm:text-6xl md:text-8xl mb-6 lg:mb-10 font-silver-crown tracking-wider text-center text-[#19213E]">
+          ADIZYA 2025 Team Leads
+        </h1>
+        <div className="text-2xl lg:mx-[12vw] font-hellas-fun text-justify">
+          At the heart of ADIZYA 2025 is a dedicated group of passionate leaders
+          who bring their expertise and energy to curate an unforgettable
+          festival experience. Each team leads a specialized committee, ensuring
+          every aspect of the event—from planning and promotion to design and
+          hospitality—is executed with excellence. Get to know the faces behind
+          the scenes and their unique roles that make ADIZYA truly outstanding
+        </div>
+      </div>
+      <div className="flex mx-40">
+        <div>
+          <Image
+            src="/imgs/teams/ananas.png"
+            alt="Ananya"
+            width={800}
+            height={800}
+            quality={100}
+            className=""
+          />
+          <div
+            className={`${pearlJean.className} text-center mt-5 text-3xl text-[#19213E]`}
+          >
+            {" "}
+            ANANYA SUNU
+          </div>
+        </div>
+        <div className="flex flex-col mt-10 px-[8vw]">
+          <h2
+            className={`text-5xl ${hornset.className} tracking-wide text-[#19213E]`}
+          >
+            CONVENER -
+          </h2>
+          <p className="text-2xl mt-4 mb-6 font-hellas-fun text-justify">
+            As the Convenor, Ananya orchestrates the entire festival, overseeing
+            every detail from initial planning and securing permissions to
+            directing the event’s seamless execution. Her leadership ensures
+            that ADIZYA runs smoothly and successfully.
+          </p>
+        </div>
+      </div>
+      <div className="flex mx-40 -mt-[7vw]">
+        <div className="flex flex-col mt-10 px-[8vw] self-end">
+          <h2
+            className={`text-5xl ${hornset.className} tracking-wide text-right text-[#19213E]`}
+          >
+            TREASURER -
+          </h2>
+          <p className="text-2xl mt-4 mb-6 font-hellas-fun text-justify">
+            Adithya manages all financial matters, maintaining a clear and
+            accurate account of funds, tracking debits and credits for each
+            committee, and guaranteeing responsible budgeting throughout the
+            event.
+          </p>
+        </div>
+        <div>
+          <Image
+            src="/imgs/teams/adi.png"
+            alt="Adithya"
+            width={800}
+            height={800}
+            quality={100}
+            className=""
+          />
+          <div
+            className={`${pearlJean.className} text-center mt-5 text-3xl text-[#19213E]`}
+          >
+            {" "}
+            ADITHYA
+          </div>
+        </div>
+      </div>
+      {teamsMems.map((member, idx) => (
+        <TeamSection
+          key={idx}
+          committee={member.committee}
+          image1src={member.image1Src}
+          image1name={member.image1Name}
+          image2src={member.image2src}
+          image2name={member.image2name}
+          description={member.description}
+        />
+      ))}
+    </div>
+  );
+};
+export default TeamsPage;
