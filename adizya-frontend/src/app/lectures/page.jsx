@@ -1,7 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import localFont from "next/font/local";
+
+const silverCrown = localFont({
+  src: "../../../public/fonts/SILVER_CROWN.ttf",
+  variable: "--font-silver-crown",
+});
+
+const hellasFun = localFont({
+  src: "../../../public/fonts/HellasFunPlain.ttf",
+  variable: "--font-hellas-fun",
+});
 
 const content = [
   {
@@ -44,91 +55,131 @@ const content = [
     description:
       "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
   },
+  {
+    architect: "Mr. John Doe",
+    overlay: "6777F6",
+    backgroundImage: "/imgs/architect.png",
+    foregroundImage: "/imgs/arch_foreground.png",
+    description:
+      "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
+  },
 ];
 
-const fadeVariant = {
-  initial: { opacity: 0, scale: 0.98 },
-  animate: { opacity: 1, scale: 1 },
-  exit: { opacity: 0, scale: 1.02, transition: { duration: 0.2 } },
-};
-
 const Lectures = () => {
-  const [active, setActive] = useState(null);
-
-  const activeContent = active !== null ? content[active] : null;
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
     <div className="w-full min-h-screen p-10 bg-[#FFFDD0] text-white">
-      <h1 className="text-6xl text-black font-silver-crown tracking-wider mb-6 transition-all duration-500 ease-in-out">
-        {active === null ? "GUESTS AND MEMBERS" : activeContent.architect}
+      <h1 className={`${silverCrown.className} text-6xl text-black tracking-wider mb-6 transition-all duration-500 ease-in-out`}>
+        {hoveredIndex === null ? "GUESTS AND MEMBERS" : content[hoveredIndex].architect}
       </h1>
 
-      <div className="m-10 h-[75vh] flex overflow-hidden">
-        <AnimatePresence mode="wait">
-          {active === null ? (
+      <div className="m-10 h-[75vh] flex overflow-hidden gap-1 relative">
+        {content.map((item, index) => {
+          const isHovered = hoveredIndex === index;
+          const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
+
+          return (
             <motion.div
-              key="grid"
-              variants={fadeVariant}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="flex h-full w-full"
+              key={index}
+              className="h-full cursor-pointer overflow-hidden relative"
+              initial={false}
+              animate={{
+                flex: isHovered ? 100 : isOtherHovered ? 0.1 : 1,
+                opacity: isOtherHovered ? 0 : 1,
+              }}
+              transition={{
+                duration: 0.7,
+                ease: [0.4, 0, 0.2, 1],
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {content.map((item, index) => (
-                <div 
-                  key={index}
-                  className="relative h-full flex-1 cursor-pointer transition-all duration-500 ease-in-out"
-                  onClick={() => setActive(index)}
-                >
-                  <Image
-                    src={item.backgroundImage}
-                    alt="Background"
-                    fill
-                    className="object-cover"
-                  />
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backgroundColor: `#${item.overlay}`,
-                      opacity: 0.65,
-                    }}
-                  ></div>
-                  <Image
-                    src={item.foregroundImage}
-                    alt="Foreground"
-                    fill
-                    className="object-contain object-bottom pointer-events-none"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              key="detail"
-              variants={fadeVariant}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.4 }}
-              className="relative flex h-full w-full cursor-pointer p-6"
-              style={{ backgroundColor: `#${activeContent.overlay}` }}
-              onClick={() => setActive(null)}
-            >
-              <div className="relative w-1/5 h-full">
+
+              <motion.div
+                className="absolute inset-0"
+                animate={{
+                  opacity: isHovered ? 0 : 1,
+                }}
+                transition={{ duration: 0.4 }}
+              >
                 <Image
-                  src={activeContent.backgroundImage}
+                  src={item.backgroundImage}
                   alt="Background"
                   fill
                   className="object-cover"
                 />
-              </div>
+              </motion.div>
 
-              <h3 className="ml-10 text-2xl text-white font-hellas-fun w-2/3">
-                {activeContent.description}
-              </h3>
+
+              <motion.div
+                className="absolute inset-0"
+                style={{
+                  backgroundColor: `#${item.overlay}`,
+                }}
+                animate={{
+                  opacity: isHovered ? 1 : 0.65,
+                }}
+                transition={{ duration: 0.4 }}
+              />
+
+              <motion.div
+                animate={{
+                  opacity: isHovered ? 0 : 1,
+                  x: isHovered ? -80 : 0,
+                }}
+                transition={{ duration: isHovered ? 0.1 : 0.5, delay: isHovered ? 0 : 0.6 }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={item.foregroundImage}
+                  alt="Foreground"
+                  fill
+                  className="object-contain object-bottom pointer-events-none"
+                />
+              </motion.div>
+
+              <motion.div
+                className="absolute inset-0 p-6 flex overflow-hidden"
+                animate={{
+                  opacity: isHovered ? 1 : 0,
+                }}
+                transition={{ duration: 0.4, delay: isHovered ? 0.2 : 0 }}
+              >
+                <motion.div
+                  className="w-1/4 h-full relative"
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{
+                    x: isHovered ? 0 : -100,
+                    opacity: isHovered ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.6, delay: isHovered ? 0.3 : 0, ease: [0.4, 0, 0.2, 1] }}
+                >
+                  <Image
+                    src={item.backgroundImage}
+                    alt="Profile"
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+
+                <div className="flex-1 p-8 overflow-hidden">                    
+                    <motion.p
+                      className={`${hellasFun.className} text-2xl text-white leading-relaxed`}
+                      initial={{ x: -100, opacity: 0 }}
+                      animate={{
+                        x: isHovered ? 0 : -100,
+                        opacity: isHovered ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.7, delay: isHovered ? 0.5 : 0, ease: [0.4, 0, 0.2, 1] }}
+                    >
+                      {item.description}
+                    </motion.p>
+                  </div>
+              </motion.div>
             </motion.div>
-          )}
-        </AnimatePresence>
+          );
+        })}
       </div>
     </div>
   );
