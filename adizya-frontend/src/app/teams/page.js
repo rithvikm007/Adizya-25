@@ -98,24 +98,26 @@ const TeamsPage = () => {
           the scenes and their unique roles that make ADIZYA truly outstanding
         </div>
       </div>
-      <div className="flex mx-40">
-        <div>
-          <Image
-            src="/imgs/teams/ananas.png"
-            alt="Ananya"
-            width={800}
-            height={800}
-            quality={100}
-            className=""
-          />
+      <div className="flex lg:mx-24 xl:mx-40">
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-[30vw] h-40 md:w-64 md:h-64 relative ">
+            <Image
+              src="/imgs/teams/ananas.png"
+              alt="Ananya"
+              fill
+              quality={100}
+              className="object-contain"
+            />
+          </div>
+
           <div
-            className={`${pearlJean.className} text-center mt-5 text-3xl text-[#19213E]`}
+            className={`${pearlJean.className} text-center mt-5 text-2xl md:text-3xl text-[#19213E]`}
           >
             {" "}
             ANANYA SUNU
           </div>
         </div>
-        <div className="flex flex-col mt-10 px-[8vw]">
+        <div className="flex flex-col mt-10 px-[4vw] xl:px-[8vw]">
           <h2
             className={`text-5xl ${hornset.className} tracking-wide text-[#19213E]`}
           >
@@ -129,8 +131,8 @@ const TeamsPage = () => {
           </p>
         </div>
       </div>
-      <div className="flex mx-40 -mt-[7vw]">
-        <div className="flex flex-col mt-10 px-[8vw] self-end">
+      <div className="flex lg:mx-24 xl:mx-40 -mt-[5vw]">
+        <div className="flex flex-col mt-10 px-[4vw] xl:px-[8vw] self-end">
           <h2
             className={`text-5xl ${hornset.className} tracking-wide text-right text-[#19213E]`}
           >
@@ -143,17 +145,19 @@ const TeamsPage = () => {
             event.
           </p>
         </div>
-        <div>
-          <Image
-            src="/imgs/teams/adi.png"
-            alt="Adithya"
-            width={800}
-            height={800}
-            quality={100}
-            className=""
-          />
+        <div className="flex flex-col items-center justify-center">
+          <div className="w-[30vw] h-40 md:w-64 md:h-64 relative">
+            <Image
+              src="/imgs/teams/adi.png"
+              alt="Adithya"
+              fill
+              quality={100}
+              className=" object-contain "
+            />
+          </div>
+
           <div
-            className={`${pearlJean.className} text-center mt-5 text-3xl text-[#19213E]`}
+            className={`${pearlJean.className} text-center mt-5 text-2xl md:text-3xl text-[#19213E]`}
           >
             {" "}
             ADITHYA
