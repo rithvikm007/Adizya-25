@@ -12,14 +12,14 @@ const NavBar = () => {
 
   const navItems = [
     { href: "/about", label: "about us" },
-    { href: "/workshops", label: "workshops" },
+    { href: "/events", label: "workshops" },
     { href: "/lecturers", label: "lecturers" },
     { href: "/sponsors", label: "sponsors" },
     { href: "/register", label: "register" },
   ];
 
   return (
-    <nav className="w-full bg-[var(--primary-color)] px-6 sm:px-6 py-4">
+    <nav className="w-full bg-[var(--primary-color)] px-6 sm:px-6 py-2">
       <div className="flex items-center justify-between">
         <div className="text-xl font-bold">
           <img

@@ -74,7 +74,7 @@ const Lectures = () => {
         {hoveredIndex === null ? "GUESTS AND MEMBERS" : content[hoveredIndex].architect}
       </h1>
 
-      <div className="m-10 h-[75vh] flex overflow-hidden relative">
+      <div className="m-10 h-[70vh] flex overflow-hidden relative">
         {content.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
