@@ -81,7 +81,7 @@ const hornset = localFont({ src: "../../../public/fonts//Hornset.ttf" });
 const pearlJean = localFont({ src: "../../../public/fonts/PearlJean.otf" });
 const TeamsPage = () => {
   return (
-    <div className="bg-[url('../../public/imgs/background.png')] bg-cover text-[#040404]">
+    <div className="bg-[url('../../public/imgs/background.png')] bg-contain bg-repeat-y text-[#040404]">
       <div className="flex flex-col p-8  items-center justify-center">
         <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
           MEET THE
