@@ -69,12 +69,12 @@ const Lectures = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <div className="w-full min-h-screen p-10 bg-[#FFFDD0] text-white">
+    <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.png')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
       <h1 className={`${silverCrown.className} text-6xl text-black tracking-wider mb-6 transition-all duration-500 ease-in-out`}>
         {hoveredIndex === null ? "GUESTS AND MEMBERS" : content[hoveredIndex].architect}
       </h1>
 
-      <div className="m-10 h-[75vh] flex overflow-hidden gap-1 relative">
+      <div className="m-10 h-[75vh] flex overflow-hidden relative">
         {content.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index;
