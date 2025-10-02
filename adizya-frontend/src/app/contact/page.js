@@ -12,7 +12,7 @@ const formFont = localFont({
 export default function Register() {
     return (
         <div>
-            <main className="px-6 grid grid-rows-3 bg-paper w-screen h-screen">
+            <main className="px-6 grid grid-rows-3 bg-paper w-full h-screen">
                 <div className="row-span-1 flex justify-start p-12 items-center">
                     <h1 className={"tracking-wide text-8xl capitalize " + headerFont.className}>Contact Us</h1>
                 </div>
