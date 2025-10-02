@@ -1,5 +1,25 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import './styles/fonts.css';
+import localFont from "next/font/local";
+
+const silverCrown = localFont({
+  src: "../../public/fonts/SILVER CROWN.ttf",
+  variable: "--font-silvercrown",
+});
+
+const pearlJean = localFont({
+  src: "../../public/fonts/PearlJean.ttf",
+  variable: "--font-pearljean",
+});
+
+const hellasFun = localFont({
+  src: "../../public/fonts/hellasfun-plain.ttf",
+  variable: "--font-hellasfun",
+});
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +38,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
