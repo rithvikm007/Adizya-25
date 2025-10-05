@@ -26,12 +26,13 @@ const AboutUs = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
+        pin: true,
         markers: true,
         trigger: section,
-        start: "top 8%",
-        end: "bottom 40%",
-        scrub: false,
-        once: true,
+        start: "top top",
+        end: "bottom 20%",
+        scrub: true,
+
       },
     });
 
@@ -57,7 +58,7 @@ const AboutUs = () => {
 
   return (
     <div
-      className="relative w-full min-h-[110vh] bg-paper overflow-hidden"
+      className="relative w-full min-h-[120vh] bg-paper overflow-hidden"
       ref={sectionRef}
     >
       <h1
@@ -70,13 +71,13 @@ const AboutUs = () => {
         ref={blueRef}
         src="/imgs/blue-outline.png"
         alt="People illustration"
-        className="absolute bottom-[-170px] left-0 w-full h-auto"
+        className="absolute bottom-[-70px] left-0 w-full h-auto"
       />
       <img
         ref={pplRef}
         src="/imgs/ppl.png"
         alt="People illustration"
-        className="absolute scale-150 lg:bottom-[-100px] lg:scale-100 left-0 w-full h-auto"
+        className="absolute bottom-0 scale-100 left-0 w-full h-auto"
       />
     </div>
   );
