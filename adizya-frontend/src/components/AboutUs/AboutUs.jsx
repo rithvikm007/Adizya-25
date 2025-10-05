@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./style.css";
 import gsap from "gsap/src";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "@studio-freight/lenis";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,6 +20,15 @@ const AboutUs = () => {
   const blueRef = useRef(null);
 
   useEffect(() => {
+    const lenis = new Lenis();
+
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
     const section = sectionRef.current;
     const ppl = pplRef.current;
     const text = textRef.current;
@@ -32,7 +42,6 @@ const AboutUs = () => {
         start: "top top",
         end: "bottom 20%",
         scrub: true,
-
       },
     });
 
@@ -41,7 +50,6 @@ const AboutUs = () => {
       { y: 100, opacity: 0, scale: 0.8 },
       { y: 0, opacity: 1, scale: 1, duration: 1, ease: "back.out(1.7)" }
     );
-
 
     tl.fromTo(
       text,
