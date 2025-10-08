@@ -63,9 +63,17 @@ const workshops = [
 export default function WorkshopSlider() {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = useState(false);
   const autoSlideRef = useRef(null)
   const pauseTimeoutRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
+  
 
   useEffect(() => {
     if (!isPaused) {
@@ -112,21 +120,24 @@ export default function WorkshopSlider() {
 
   const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 300 : -300,
+      x: isMobile ? 0 : direction > 0 ? 300 : -300,
+      y: isMobile ? (direction > 0 ? 300 : -300) : 0,
       opacity: 0,
     }),
     center: {
       x: 0,
+      y: 0,
       opacity: 1,
     },
     exit: (direction) => ({
-      x: direction > 0 ? -300 : 300,
+      x: isMobile ? 0 : direction > 0 ? -300 : 300,
+      y: isMobile ? (direction > 0 ? -300 : 300) : 0,
       opacity: 0,
     }),
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f9eac6]"
+    <div className="flex flex-col min-h-screen pb-10 overflow-x-hidden bg-[#f9eac6]"
       style={{
         backgroundImage: "url(/imgs/background.png)",
         backgroundSize: "cover",
@@ -139,14 +150,14 @@ export default function WorkshopSlider() {
       </h1>
 
       <div className="flex flex-col items-center w-full">
-        <div className="relative w-[90%] h-[800px] overflow-hidden rounded-2xl">
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-24 z-10">
+        <div className="relative w-[90%] h-[800px] overflow rounded-2xl">
+          <div className="absolute md:bottom-4 md:left-1/2 right-0 md:right-auto top-1/3 md:top-auto transform md:-translate-x-1/2 flex md:flex-row flex-col md:space-x-24 space-y-10 md:space-y-0 z-30">
             {workshops.map((w, i) => (
               <button
                 key={w.id}
                 onClick={() => selectWorkshop(i)}
-                className={`w-24 h-24 rounded-full transition-all duration-300 ${
-                  i === index ? "border-8 shadow-lg scale-105" : "border-2 hover:scale-105"
+                className={`md:w-24 w-10 md:h-24 h-10 rounded-full cursor-pointer transition-all duration-300 ${
+                  i === index ? "md:border-8 border-4 shadow-lg scale-105" : "border-2 hover:scale-105"
                 }`}
                 style={{
                   backgroundColor: w.color,
@@ -166,17 +177,17 @@ export default function WorkshopSlider() {
               exit="exit"
               
               transition={{ duration: 0.2, ease: "easeInOut" }}
-              className="absolute w-full h-full flex"
+              className="absolute w-full h-full flex md:flex-row flex-col"
             >
-              <div className="w-2/3 flex justify-center p-8">
+              <div className="md:w-2/3 flex justify-center md:p-8">
                 <img
-                  src={current.img || "/placeholder.svg"}
+                  src={current.img}
                   alt={current.title}
-                  className="w-full h-4/5 object-cover rounded-lg shadow-lg"
+                  className="w-full md:h-4/5 h-[90%] object-cover rounded-lg shadow-lg"
                 />
               </div>
               <div
-                className="flex-1 flex flex-col justify-center p-6 text-black"
+                className="flex-1 flex flex-col justify-center p-6 text-black rounded-xl"
                 style={{ backgroundColor: current.color,
                   backgroundImage: "url(/imgs/background.png)",
                   backgroundSize: "cover",
@@ -184,7 +195,7 @@ export default function WorkshopSlider() {
                   backgroundRepeat: "no-repeat",
                  }}
               >
-                <h2 className="text-4xl pearl-font font-bold">{current.title}</h2>
+                <h2 className="text-4xl pearl-font w-[90%] break-all md:break-normal font-bold">{current.title}</h2>
                 <ul className="mt-6 space-y-3 hellas-font text-xl">
                   <li>
                     <span className="font-semibold">Info:</span> {current.info}
