@@ -49,8 +49,8 @@ const Footer = () => {
 
   return (
     <nav className="width-100">
-      <div className="width-100 flex flex-col lg:flex-row justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
-        <div className="flex flex-col gap-4 mb-10 lg:mb-0">
+      <div className="width-100 flex flex-col lg:flex-row gap-8 lg:gap-80 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div className="flex flex-col gap-4">
           {navLinks.map((link, index) => (
             <Link
               key={index}
@@ -61,20 +61,19 @@ const Footer = () => {
             </Link>
           ))}
         </div>
+
         <div className="flex flex-col gap-5 font-medium text-[#363636] font-pearl-jean text-sm lg:text-xl">
-          <div>
-            <h3>Contact Us at</h3>
-            <h3>adizya@nitc.ac.in</h3>
-          </div>
-          <div>
-            <h3>National Institute of Technology Calicut</h3>
-            <h3>Kozhikode, Kerala, 673 601, India</h3>
-          </div>
+          <h3>Contact Us at adizya@nitc.ac.in</h3>
+          <h3>
+            National Institute of Technology Calicut Kozhikode, Kerala, 673 601,
+            India
+          </h3>
           <div className="flex flex-row width-100 justify-between">
             <h3>+91 62385 81131</h3>
             <h3>+91 97462 07385</h3>
           </div>
         </div>
+
         <div>
           <div className="flex flex-col lg:flex-row items-center">
             <img
@@ -82,7 +81,7 @@ const Footer = () => {
               width={adizyaIconSize}
               alt="Adizya Logo"
             />
-            <h3 className="font-silver-crown text-6xl text-[#363636] mb-10 lg:mb-0">
+            <h3 className="font-silver-crown text-5xl text-[#363636] text-nowrap">
               ADIZYA 25
             </h3>
           </div>
