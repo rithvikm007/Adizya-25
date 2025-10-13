@@ -1,94 +1,107 @@
+"use client";
+
 import Link from "next/link";
-import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
-  const instagramLink = "https://www.instagram.com/adizya25/";
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Team", href: "/teams" },
+    { label: "Sponsors", href: "/sponsors" },
+    { label: "Workshops", href: "/events-and-workshops" },
+  ];
+
+  const linkIconSize = 32;
+  const adizyaIconSize = 160;
+
+  const links = [
+    {
+      icon: (
+        <FaInstagram
+          size={linkIconSize}
+          className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+          color="black"
+        />
+      ),
+      link: "https://www.instagram.com/adizya25/",
+    },
+    {
+      icon: (
+        <FaYoutube
+          size={linkIconSize}
+          className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+          color="black"
+        />
+      ),
+      link: "https://www.youtube.com/@Adizya24",
+    },
+    {
+      icon: (
+        <FaLinkedin
+          size={linkIconSize}
+          className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10"
+          color="black"
+        />
+      ),
+      link: "",
+    },
+  ];
 
   return (
-    <footer className="w-full bg-[var(--secondary-color)] bg-[url('/imgs/footer-bg.svg')] bg-cover bg-center bg-no-repeat">
-      <div className="flex flex-col lg:flex-row justify-between p-4 sm:p-6 lg:p-10 gap-6 sm:gap-8 lg:gap-0 items-center">
-        <div className="flex flex-col lg:flex-row lg:h-full lg:items-end items-center gap-4 sm:gap-6 lg:gap-0">
-          <div className="flex flex-col items-center">
-            <img src="/imgs/adizya.svg" className="w-48 lg:w-64" alt="Adizya Logo" />
-            <div className="flex justify-between items-center">
-              <h2 className="text-black m-0 text-4xl md:text-5xl lg:text-7xl font-silver-crown font-normal whitespace-nowrap tracking-wide">
-                ADIZYA 25
-              </h2>
-            </div>
-          </div>
-          <a
-            href={instagramLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-min lg:mb-3"
-          >
-            <FaInstagram
-              size={32}
-              className="w-7 h-7 md:w-8 md:h-8 lg:w-12 lg:h-12"
-              color="black"
-            />
-          </a>
+    <nav className="width-100">
+      <div className="width-100 flex flex-col lg:flex-row gap-8 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
+        <div className="flex flex-col gap-4">
+          {navLinks.map((link, index) => (
+            <Link
+              key={index}
+              className="font-pearl-jean text-[#363636] font-medium text-lg lg:text-2xl hover:text-gray-600"
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
-        <div className="flex flex-row w-full font-hellas-fun tracking-widest text-[#363636] lg:w-auto justify-center lg:justify-end h-min lg:mr-50">
-          <div className="gap-4 sm:gap-6 lg:gap-10 lg:border-r-2 border-[#363636] flex flex-col justify-between sm:justify-start p-3 sm:p-4 lg:p-10 border-b-[#363636] sm:border-r-black">
-            <Link
-              href="/"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              home
-            </Link>
-            <Link
-              href="/team"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              team
-            </Link>
-            <Link
-              href="/sponsors"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              sponsors
-            </Link>
+        <div className="flex flex-col gap-5 font-medium text-[#363636] font-pearl-jean text-sm lg:text-xl">
+          <h3>Contact Us at adizya@nitc.ac.in</h3>
+          <h3>
+            National Institute of Technology Calicut Kozhikode, Kerala, 673 601,
+            India
+          </h3>
+          <div className="flex flex-row width-100 justify-between">
+            <h3>+91 62385 81131</h3>
+            <h3>+91 97462 07385</h3>
           </div>
-          <div className="gap-4 sm:gap-6 lg:gap-10 lg:border-r-2 border-[#363636] flex flex-col justify-between sm:justify-start p-3 sm:p-4 lg:p-10 border-b-[#363636] sm:border-r-black">
-            <Link
-              href="/events"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              events
-            </Link>
-            <Link
-              href="/workshops"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              workshops
-            </Link>
-            <Link
-              href="/certificates"
-              className="text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              certificates
-            </Link>
+        </div>
+
+        <div>
+          <div className="flex flex-col lg:flex-row items-center">
+            <img
+              src="/imgs/adizya.svg"
+              width={adizyaIconSize}
+              alt="Adizya Logo"
+            />
+            <h3 className="font-silver-crown text-5xl text-[#363636] text-nowrap">
+              ADIZYA 25
+            </h3>
           </div>
-          <div className="gap-4 sm:gap-6 lg:gap-10 flex flex-col sm:justify-start p-3 sm:p-4 lg:p-10">
-            <Link
-              href="/register"
-              className="text-lg sm:text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              register
-            </Link>
-            <Link
-              href="/contact"
-              className="text-lg sm:text-lg lg:text-xl xl:text-3xl font-light whitespace-nowrap"
-            >
-              contact
-            </Link>
+          <div className="flex gap-4 justify-center width-100 items-center">
+            {links.map((link, index) => (
+              <a
+                key={index}
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-min"
+              >
+                {link.icon}
+              </a>
+            ))}
           </div>
         </div>
       </div>
-      <div className="h-12 sm:h-14 lg:h-16 bg-[var(--primary-color)]"></div>
-    </footer>
+      <div className="bg-[var(--primary-color)] h-20"></div>
+    </nav>
   );
 };
 
