@@ -11,7 +11,7 @@ const NavBar = () => {
   };
 
   const navItems = [
-    { href: "/about", label: "about us" },
+    { href: "/#about", label: "about us" },
     { href: "/events-and-workshops", label: "workshops" },
     { href: "/lecturers", label: "lecturers" },
     { href: "/sponsors", label: "sponsors" },
