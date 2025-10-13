@@ -72,7 +72,7 @@ const NavBar = () => {
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col gap-4 py-6">
+        <ul className="flex font-pearl-jean flex-col gap-4 py-6">
           {navItems.map((item, index) => (
             <li key={index}>
               <a
