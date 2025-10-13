@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import Loading from "@/components/Loading"
 
 
 const WorkshopDesc1 = () => (
@@ -87,7 +88,7 @@ const workshops = [
     subtitle: "POTTERY WORKSHOP",
     img1: "/imgs/events-workshops/terra1.png",
     img2: "/imgs/events-workshops/terra2.png",
-    img3: "/imgs/events-workshops/terra3.png",
+    img3: "",
     color: "#EECE7B",
     secColor: "#CBA045",
     instructor: "Plant Aura",
@@ -141,6 +142,12 @@ export default function WorkshopSlider() {
   const autoSlideRef = useRef(null)
   const pauseTimeoutRef = useRef(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024)
@@ -234,9 +241,9 @@ export default function WorkshopSlider() {
     },
   }
 
-  return (
+  return loading ? <Loading/> : (
     <div
-      className="flex flex-col h-[956px] pb-10 overflow-x-hidden bg-[#f9eac6]"
+      className="flex flex-col lg:h-[956px] md:h-[1000px] h-[900px] pb-10 overflow-x-hidden bg-[#f9eac6]"
       style={{
         backgroundImage: "url(/imgs/background.png)",
         backgroundSize: "cover",
@@ -244,7 +251,7 @@ export default function WorkshopSlider() {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] silver-font px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center">
+      <h1 className="text-5xl sm:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] silver-font px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center">
         EVENTS AND WORKSHOPS
       </h1>
           {/* Navigation Circles - Mobile (Right side vertical) */}
@@ -266,7 +273,7 @@ export default function WorkshopSlider() {
           </div>
 
           {/* Navigation Circles - Desktop (Bottom horizontal) */}
-          <div className="hidden lg:flex absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-27 space-x-24 z-30">
+          <div className="hidden lg:flex absolute bottom-0 left-1/2 transform -translate-x-1/2 2xl:translate-y-[115%] xl:translate-y-[144%] lg:translate-y-[150%] space-x-24 z-30">
             {workshops.map((w, i) => (
               <button
                 key={w.id}
@@ -344,14 +351,18 @@ export default function WorkshopSlider() {
                         className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
                         aria-label="Previous image"
                       >
-                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
+                        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" 
+                          onClick={() => setIsPaused(true)}
+                        />
                       </button>
                       <button
                         onClick={nextImage}
                         className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all z-10"
                         aria-label="Next image"
                       >
-                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" />
+                        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-800" 
+                          onClick={() => setIsPaused(true)}
+                        />
                       </button>
 
                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
