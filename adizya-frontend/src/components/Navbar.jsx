@@ -11,8 +11,8 @@ const NavBar = () => {
   };
 
   const navItems = [
-    { href: "/about", label: "about us" },
-    { href: "/events", label: "workshops" },
+    { href: "/#about", label: "about us" },
+    { href: "/events-and-workshops", label: "workshops" },
     { href: "/lecturers", label: "lecturers" },
     { href: "/sponsors", label: "sponsors" },
     { href: "/register", label: "register" },
@@ -22,19 +22,21 @@ const NavBar = () => {
     <nav className="w-full bg-[var(--primary-color)] px-6 sm:px-6 py-2">
       <div className="flex items-center justify-between">
         <div className="text-xl font-bold">
-          <img
-            src="/imgs/adizya.svg"
-            alt="Adizya Logo"
-            width={iconSize}
-            className="w-16 sm:w-20 lg:w-24"
-          />
+          <a href="/">
+            <img
+              src="/imgs/adizya.svg"
+              alt="Adizya Logo"
+              width={iconSize}
+              className="w-16 sm:w-20 lg:w-24"
+            />
+          </a>
         </div>
-        <ul className="hidden lg:flex gap-8 xl:gap-20 justify-center w-full">
+        <ul className="hidden lg:flex gap-8 xl:gap-20 justify-end w-full">
           {navItems.map((item, index) => (
             <li key={index}>
               <a
                 href={item.href}
-                className="hover:text-gray-600 text-[#19213E] text-2xl font-thin transition-colors duration-200"
+                className="hover:text-gray-600 text-[#19213E] text-3xl font-thin transition-colors duration-200 font-pearl-jean"
               >
                 {item.label}
               </a>
@@ -70,7 +72,7 @@ const NavBar = () => {
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col gap-4 py-6">
+        <ul className="flex font-pearl-jean flex-col gap-4 py-6">
           {navItems.map((item, index) => (
             <li key={index}>
               <a

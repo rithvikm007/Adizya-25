@@ -1,31 +1,31 @@
-@font-face {
+/* @font-face {
   font-family: 'SilverCrown';
   src: url('/app/fonts/SilverCrown.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 .silver-font {
   font-family: 'SilverCrown', sans-serif;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'PearlJean';
   src: url('/app/fonts/PearlJean.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 .pearl-font {
   font-family: 'PearlJean', sans-serif;
 }
 
-@font-face {
+/* @font-face {
   font-family: 'HellasFun';
   src: url('/app/fonts/HellasFun.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 .hellas-font {
   font-family: 'HellasFun', sans-serif;
