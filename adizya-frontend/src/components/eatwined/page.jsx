@@ -1,25 +1,19 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const EatwinedPage = () => {
   const overlayRef = useRef(null);
   const sectionRef = useRef(null);
-
   useEffect(() => {
     // Observe the specific section (card) and run animation only when
     // the card is mostly visible (threshold 0.9). This avoids firing while
     // other page sections scroll into view.
     if (!sectionRef.current || !overlayRef.current) return;
-
     const el = overlayRef.current;
     const observed = sectionRef.current;
-
     const onIntersect = (entries, observer) => {
       entries.forEach((entry) => {
         // When the section is at least 90% visible
@@ -27,19 +21,17 @@ const EatwinedPage = () => {
           gsap.fromTo(
             el,
             { opacity: 0 },
-            { opacity: 0.85, duration: 1.6, ease: "power2.out" }
+            { opacity: 0.8, duration: 1.6, ease: "power2.out" }
           );
           // Stop observing after the animation has been triggered once
           observer.disconnect();
         }
       });
     };
-
     const observer = new IntersectionObserver(onIntersect, {
       threshold: [0.5, 0.75, 0.9, 1.0],
     });
     observer.observe(observed);
-
     return () => {
       try {
         observer.disconnect();
@@ -49,9 +41,8 @@ const EatwinedPage = () => {
       } catch (e) {}
     };
   }, []);
-
   return (
-    <section ref={sectionRef} className="relative w-screen min-h-screen h-fit">
+    <section ref={sectionRef} className="relative w-screen min-h-[95vh] h-fit">
       {/* Background Image */}
       <Image
         src="/imgs/web_map.png"
@@ -59,22 +50,19 @@ const EatwinedPage = () => {
         fill
         className="object-cover"
       />
-
       {/* Overlay */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-white/95 pointer-events-none flex items-center justify-center flex-col font-hellas-fun"
+        className="absolute inset-0 bg-white/95 pointer-events-none flex items-center justify-center flex-col font-hellas-fun px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20"
         style={{ opacity: 0 }}
       >
-        <div className="text-base md:text-lg xl:text-3xl tracking-wider uppercase text-gray-700">
+        <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl tracking-wider uppercase text-gray-700">
           ADIZYA'25 THEME
         </div>
-
-        <h1 className="font-silver-crown text-8xl lg:text-[10rem] mb-7 text-gray-900 tracking-wide">
+        <h1 className="font-silver-crown text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-gray-900 tracking-wide">
           EATWINED
         </h1>
-
-        <div className="mt-6 text-base md:text-lg xl:text-3xl  text-gray-800/95 max-w-7xl mx-auto ">
+        <div className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl text-gray-800/95 max-w-7xl mx-auto leading-relaxed">
           ENTWINED, which is this Adizya's theme, explores the uncharted
           connections existing among people that coalesces to weave the fabric
           of architecture and ultimately the tapestry of society.
@@ -99,5 +87,4 @@ const EatwinedPage = () => {
     </section>
   );
 };
-
 export default EatwinedPage;

@@ -9,12 +9,11 @@ export default function Home() {
     <>
     <LogoLoad />
     <AboutUs id="about" />
-    <Gallery id="gallery" />
-    </>
-    <div>
-      <div className="w-120 h-300"></div>
       <EatwinedPage />
       <AcknowledgementsPage />
-    </div>
+    <Gallery id="gallery" />
+    
+    
+    </>
   );
 }
