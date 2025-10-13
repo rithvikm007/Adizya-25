@@ -159,17 +159,17 @@ const AboutUs = () => {
           <div className="hidden lg:block self-stretch w-[2px] bg-[#d4c7a4] mx-8"></div>
 
           <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-center justify-center text-[#1e2a5a] mt-8 lg:mt-0 space-y-8 text-center lg:text-left">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold font-pearl-jean leading-tight">
               <p>HANDS-ON</p>
               <p className="lg:ml-[-50px]">WORKSHOPS</p>
             </h2>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold font-pearl-jean leading-tight">
               <p>INSIGHTFUL</p>
               <p className="lg:ml-[50px]">LECTURES</p>
             </h2>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold font-pearl-jean leading-tight">
               <p>INTERACTIVE</p>
               <p className="lg:ml-[-50px]">EXHIBITIONS</p>
             </h2>
