@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   const linkIconSize = 32;
-  const adizyaIconSize = 200;
+  const adizyaIconSize = 160;
 
   const links = [
     {
@@ -49,7 +49,7 @@ const Footer = () => {
 
   return (
     <nav className="width-100">
-      <div className="width-100 flex flex-col lg:flex-row gap-8 lg:gap-80 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
+      <div className="width-100 flex flex-col lg:flex-row gap-8 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
         <div className="flex flex-col gap-4">
           {navLinks.map((link, index) => (
             <Link
