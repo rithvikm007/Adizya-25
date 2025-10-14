@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "silver-crown": ["Silver Crown", "serif"],
+        "hellas-fun": ["HellasFun", "sans-serif"],
       },
     },
   },
