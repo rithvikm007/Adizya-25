@@ -243,7 +243,7 @@ export default function WorkshopSlider() {
 
   return loading ? <Loading/> : (
     <div
-      className="flex flex-col lg:h-[956px] md:h-[1000px] h-[900px] pb-10 overflow-x-hidden bg-[#f9eac6]"
+      className="flex flex-col overflow-x-hidden bg-[#f9eac6]"
       style={{
         backgroundImage: "url(/imgs/background.png)",
         backgroundSize: "cover",
@@ -272,23 +272,7 @@ export default function WorkshopSlider() {
             ))}
           </div>
 
-          {/* Navigation Circles - Desktop (Bottom horizontal) */}
-          <div className="hidden lg:flex absolute bottom-0 left-1/2 transform -translate-x-1/2 2xl:translate-y-[115%] xl:translate-y-[144%] lg:translate-y-[150%] space-x-24 z-30">
-            {workshops.map((w, i) => (
-              <button
-                key={w.id}
-                onClick={() => selectWorkshop(i)}
-                className={`w-24 h-24 rounded-full cursor-pointer transition-all duration-300 ${
-                  i === index ? "border-8 shadow-lg scale-105" : "border-2 hover:scale-105"
-                }`}
-                style={{
-                  backgroundColor: w.color,
-                  borderColor: w.secColor,
-                }}
-                aria-label={`View ${w.title}`}
-              />
-            ))}
-          </div>
+        
 
       <div className="flex flex-col items-center w-full lg:pl-12 px-4 sm:px-6 lg:px-0">
         <div className="relative w-full h-auto lg:h-[700px] overflow-hidden">
@@ -471,6 +455,23 @@ export default function WorkshopSlider() {
           </AnimatePresence>
         </div>
       </div>
+      {/* Navigation Circles - Desktop (Bottom horizontal) */}
+          <div className="hidden lg:flex justify-center space-x-24 z-30 p-8">
+            {workshops.map((w, i) => (
+              <button
+                key={w.id}
+                onClick={() => selectWorkshop(i)}
+                className={`w-24 h-24 rounded-full cursor-pointer transition-all duration-300 ${
+                  i === index ? "border-8 shadow-lg scale-105" : "border-2 hover:scale-105"
+                }`}
+                style={{
+                  backgroundColor: w.color,
+                  borderColor: w.secColor,
+                }}
+                aria-label={`View ${w.title}`}
+              />
+            ))}
+          </div>
     </div>
   )
 }

@@ -1,6 +1,9 @@
+"use client";
 import localFont from "next/font/local";
+import { useState, useEffect } from "react";
 import TeamSection from "./section";
 import Image from "next/image";
+import Loading from "@/components/Loading";
 
 const teamsMems = [
   {
@@ -10,7 +13,7 @@ const teamsMems = [
     image2src: "/imgs/teams/rey.png",
     image2name: "REYAN",
     description:
-      "Hanna and Reyan breathe life into ADIZYA’s vibrant lineup. From coordinating lectures and workshops to organizing competitions and talk shows, they create the exciting, engaging programs that define the festival.",
+      "Hanna and Reyan breathe life into ADIZYA's vibrant lineup. From coordinating lectures and workshops to organizing competitions and talk shows, they create the exciting, engaging programs that define the festival.",
   },
   {
     committee: "PUBLIC RELATIONS COMMITEE (PRC)",
@@ -37,23 +40,23 @@ const teamsMems = [
     image2src: "/imgs/teams/parthav.png",
     image2name: "PARTHAV",
     description:
-      "Capturing every moment, Chaman and Parthav’s media team produces captivating videos, podcasts, and behind-the-scenes content. Their work not only documents the festival but also sharpens skills in photography, videography, and editing.",
+      "Capturing every moment, Chaman and Parthav's media team produces captivating videos, podcasts, and behind-the-scenes content. Their work not only documents the festival but also sharpens skills in photography, videography, and editing.",
   },
   {
     committee: "CONTENT TEAM",
     image1Src: "/imgs/teams/siri.png",
     image1Name: "SIRI",
-    image2src: "/imgs/teams/siri.png",
+    image2src: "/imgs/teams/sarayu.png",
     image2name: "SARAYU",
     description:
       "The wordsmiths of ADIZYA, Siri and Sarayu craft all written material—from official communications to creative scripts—ensuring the festival’s message is clear, engaging, and inspiring.",
   },
   {
     committee: "DESIGN TEAM",
-    image1Src: "/imgs/teams/jahnavi.png",
-    image1Name: "JAHNAVI",
-    image2src: "/imgs/teams/nadia.png",
-    image2name: "NADIA",
+    image1Src: "/imgs/teams/nadia.png",
+    image1Name: "NADIA",
+    image2src: "/imgs/teams/jahnavi.png",
+    image2name: "JAHNAVI",
     description:
       "Jahnavi and Nadia shape the visual identity of ADIZYA through stunning posters, brochures, and digital designs. They welcome beginners eager to develop their design skills alongside the team.",
   },
@@ -70,7 +73,7 @@ const teamsMems = [
     committee: "HOSPITALITY TEAM",
     image1Src: "/imgs/teams/ayush.png",
     image1Name: "AYUSH",
-    image2src: "/imgs/teams/ayush.png",
+    image2src: "/imgs/teams/finu.png",
     image2name: "FINU",
     description:
       "Ayush and Finu ensure that every guest feels welcomed and cared for. From coordinating arrival and accommodation to managing refreshment needs, they are the gracious hosts that make ADIZYA inviting and comfortable.",
@@ -80,8 +83,14 @@ const teamsMems = [
 const hornset = localFont({ src: "../../../public/fonts//Hornset.ttf" });
 const pearlJean = localFont({ src: "../../../public/fonts/PearlJean.otf" });
 const TeamsPage = () => {
-  return (
-    <div className="bg-[url('../../public/imgs/background.png')] bg-contain bg-repeat-y text-[#040404]">
+  const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const timer = setTimeout(() => setLoading(false), 800);
+      return () => clearTimeout(timer);
+    }, []);
+  return loading ? <Loading/> : (
+    <div className="bg-[url('../../public/imgs/background.png')] bg-contain bg-repeat-y text-[#040404] pb-10">
       <div className="flex flex-col p-8  items-center justify-center">
         <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
           MEET THE
@@ -105,8 +114,8 @@ const TeamsPage = () => {
               src="/imgs/teams/ananas.png"
               alt="Ananya"
               fill
-              quality={100}
               className="object-contain"
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
             />
           </div>
 
@@ -126,7 +135,7 @@ const TeamsPage = () => {
           <p className="text-2xl mt-4 mb-6 font-hellas-fun text-justify">
             As the Convenor, Ananya orchestrates the entire festival, overseeing
             every detail from initial planning and securing permissions to
-            directing the event’s seamless execution. Her leadership ensures
+            directing the event&apos;s seamless execution. Her leadership ensures
             that ADIZYA runs smoothly and successfully.
           </p>
         </div>
@@ -151,7 +160,7 @@ const TeamsPage = () => {
               src="/imgs/teams/adi.png"
               alt="Adithya"
               fill
-              quality={100}
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
               className=" object-contain "
             />
           </div>
