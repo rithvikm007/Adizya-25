@@ -10,12 +10,10 @@ export default function Home() {
     <>
     <LogoLoad />
     <AboutUs id="about" />
-      <EntwinedPage />
-      <AcknowledgementsPage />
-     <FAQ/> 
+    <EntwinedPage />
+    <AcknowledgementsPage />
+    <FAQ/> 
     <Gallery id="gallery" />
-    
-    
     </>
   );
 }
