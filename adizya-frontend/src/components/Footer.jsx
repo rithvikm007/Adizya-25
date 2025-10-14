@@ -43,7 +43,7 @@ const Footer = () => {
           color="black"
         />
       ),
-      link: "",
+      link: "https://www.linkedin.com/company/adizya-nit-calicut/",
     },
   ];
 
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         <div>
-          <div className="flex flex-col lg:flex-row items-center">
+          <div className="flex flex-col mb-6 lg:mb-0 lg:flex-row items-center">
             <img
               src="/imgs/adizya.svg"
               width={adizyaIconSize}

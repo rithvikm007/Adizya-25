@@ -50,7 +50,7 @@ const AboutUs = () => {
         pin: true,
         trigger: section,
         start: "top top",
-        end: "+=500%",
+        end: "+=300%",
         scrub: true,
       },
     });

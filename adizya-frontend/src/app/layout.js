@@ -34,7 +34,13 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Adizya 25",
   description: "NIT Calicut Architecture Fest",
+  icons: {
+    icon: "/imgs/adizya.svg", // Path inside the public/ folder
+    shortcut: "/imgs/adizya.svg",
+    apple: "/imgs/adizya.svg",
+  },
 };
+
 
 export default function RootLayout({ children }) {
   return (
