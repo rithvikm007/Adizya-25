@@ -4,7 +4,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-const EatwinedPage = () => {
+const EntwinedPage = () => {
   const overlayRef = useRef(null);
   const sectionRef = useRef(null);
   useEffect(() => {
@@ -16,12 +16,12 @@ const EatwinedPage = () => {
     const observed = sectionRef.current;
     const onIntersect = (entries, observer) => {
       entries.forEach((entry) => {
-        // When the section is at least 90% visible
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.9) {
+        // When the section is at least 75% visible
+        if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
           gsap.fromTo(
             el,
             { opacity: 0 },
-            { opacity: 0.8, duration: 1.6, ease: "power2.out" }
+            { opacity: 0.8, duration: 1.0, ease: "power2.out" }
           );
           // Stop observing after the animation has been triggered once
           observer.disconnect();
@@ -60,7 +60,7 @@ const EatwinedPage = () => {
           ADIZYA'25 THEME
         </div>
         <h1 className="font-silver-crown text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-gray-900 tracking-wide">
-          EATWINED
+          ENTWINED
         </h1>
         <div className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl text-gray-800/95 max-w-7xl mx-auto leading-relaxed">
           ENTWINED, which is this Adizya's theme, explores the uncharted
@@ -87,4 +87,4 @@ const EatwinedPage = () => {
     </section>
   );
 };
-export default EatwinedPage;
+export default EntwinedPage;
