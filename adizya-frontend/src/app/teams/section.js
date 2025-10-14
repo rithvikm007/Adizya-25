@@ -19,9 +19,9 @@ const TeamSection = ({
           <div className="relative w-[30vw] h-40 md:w-64 md:h-64 ">
             <Image
               src={image1src}
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
               alt={image1name}
               fill
-              quality={100}
               className="object-contain"
             />
           </div>
@@ -45,10 +45,10 @@ const TeamSection = ({
         <div className="flex flex-col items-center">
           <div className="relative w-[30vw] h-40 md:w-64 md:h-64">
             <Image
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
               src={image2src}
               alt={image2name}
               fill
-              quality={100}
               className="object-contain"
             />
           </div>
