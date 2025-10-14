@@ -135,7 +135,7 @@ const TeamsPage = () => {
           <p className="text-2xl mt-4 mb-6 font-hellas-fun text-justify">
             As the Convenor, Ananya orchestrates the entire festival, overseeing
             every detail from initial planning and securing permissions to
-            directing the event's seamless execution. Her leadership ensures
+            directing the event&apos;s seamless execution. Her leadership ensures
             that ADIZYA runs smoothly and successfully.
           </p>
         </div>

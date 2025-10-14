@@ -63,7 +63,7 @@ const AcknowledgementsPage = () => {
             , the Director, and{" "}
             <span className="font-semibold text-gray-800">Dr. Babu A V</span>,
             the Dean (Academic), whose encouragement was instrumental in the
-            execution of ADIZYA 25'.
+            execution of ADIZYA 25&apos;.
           </p>
 
           {/* Paragraph 3 */}
