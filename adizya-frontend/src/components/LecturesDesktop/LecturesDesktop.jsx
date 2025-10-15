@@ -22,6 +22,7 @@ const LecturesDesktop = ({
   description,
   setHoveredIndex,
   textColor,
+  innerTitle
 }) => {
   return (
     <motion.div
@@ -131,7 +132,7 @@ const LecturesDesktop = ({
                   className={`${hornset.className} text-7xl mb-5`}
                   style={{ color: `${textColor}` }}
                 >
-                  PANEL TALK
+                  {innerTitle}
                 </h1>
 
                 <p

@@ -97,10 +97,46 @@ const content = [
   },
 ];
 
+const lecturers = [
+  {
+    architect: "Ar. Dean D'Cruz",
+    backgroundImage: "/imgs/dean.webp",
+    overlay: "A6360F",
+    textColor: "#FFFFFF",
+    description:
+      "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms."
+  },
+  {
+    architect: "Ar. Guru Prasanna",
+    overlay: "D7570E",
+    backgroundImage: "/imgs/SIR.webp",
+    textColor: "#FFFFFF",
+    description:
+      "Guru Prasanna, after completing his architectural education at the NIT, Tiruchirappalli, and professional training from reputed firms like DAAT (Delhi), Venkatraman Associates (Bangalore), and Brand New Day (Auroville), started his practice under the name of Gargoyle Architecture and Interiors and worked on many residential, commercial and planning projects. After five years of field experience; in 2006 he adjourned to travel and pursue his education in Urban Design and Urban Development (MUDD) at the University of New South Wales, Sydney. Since his return in 2007, he has continued to work as the principal of his current firm BETWEENLINES.",
+  },
+  {
+    architect: "Fabien Charuau",
+    backgroundImage: "/imgs/events-workshops/bts3.webp",
+    overlay: "EECE7B",
+    textColor: "#434343",
+    description:
+      "Fabien Charuau has showcased his work in several solo exhibitions, blending photography and digital art. The Stumble Asleep (2010) at Matthieu Foss Gallery in Mumbai was praised for its honest portrayal of rural Indian men, while A Thousand Kisses Deep (2015) at Chatterjee & Lal explored the beauty within the flood of digital images. Other exhibitions, like Ways of the Road (2013) and Send Some Candids (2011), combined photography with new media to explore themes like voyeurism and societal norms. These opportunities reflect Fabien’s passion for storytelling and experimentation through images.",
+  },
+  {
+    architect: "Chandan Sinha",
+    overlay: "849E17",
+    backgroundImage: "/imgs/sinha.png",
+    textColor: "#FAEAE1",
+    description:
+      "Technical Director- Urban & Master Planning Lead-India in AECOM. A Government & Public Sector Consulting Leader & Urban Development Expert. Extensive experiences in Project Management for Construction of Mega Government Projects, Master Planning, Healthcare planning, Smart Cities, Municipal Bonds, Infrastructure development plans, Zonal Development Plan, City Development Plan, Tourism, advisory services in Financial Operating Plan, Urban land Management, Policy framework, Development strategies and Municipal/ local planning practices."
+  },
+];
+
 const Lectures = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [renderMobile, setRenderMobile] = useState(false);
+  const [secondHoveredIndex, setSecondHoveredIndex] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 500);
@@ -221,6 +257,49 @@ const Lectures = () => {
               isOtherHovered={isOtherHovered}
               setHoveredIndex={setHoveredIndex}
               textColor={item.textColor}
+              innerTitle={"PANEL TALK"}
+            />
+          );
+        })}
+      </div>
+      <h1
+        className={`${silverCrown.className} mt-10 lg:mt-0 text-7xl text-black tracking-wider transition-all duration-500 ease-in-out mb-6 text-center lg:text-left md:ml-10`}
+      >
+        LECTURERS
+      </h1>
+
+      <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
+        {lecturers.map((item, index) => {
+          const isHovered = secondHoveredIndex === index;
+          const isOtherHovered =
+            secondHoveredIndex !== null && secondHoveredIndex !== index;
+          return renderMobile ? (
+            <LecturesMobile
+              key={index}
+              architect={item.architect}
+              image={item.backgroundImage}
+              overlay={item.overlay}
+              description={item.description}
+              textColor={item.textColor}
+              index={index}
+              isHovered={isHovered}
+              isOtherHovered={isOtherHovered}
+              setHoveredIndex={setSecondHoveredIndex}
+              backgroundColor={item.overlay}
+            />
+          ) : (
+            <LecturesDesktop
+              index={index}
+              architect={item.architect}
+              backgroundImage={item.backgroundImage}
+              overlay={item.overlay}
+              description={item.description}
+              key={index}
+              isHovered={isHovered}
+              isOtherHovered={isOtherHovered}
+              setHoveredIndex={setSecondHoveredIndex}
+              textColor={item.textColor}
+              innerTitle={item.architect}
             />
           );
         })}
