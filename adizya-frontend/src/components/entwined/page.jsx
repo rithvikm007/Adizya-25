@@ -54,7 +54,7 @@ const EntwinedPage = () => {
     };
   }, []);
   return (
-    <section ref={sectionRef} className="relative w-screen min-h-[95vh] h-fit">
+    <section ref={sectionRef} className="relative w-full min-h-[95vh] h-fit">
       {/* Background Image */}
       <Image
         src="/imgs/web_map.webp"
