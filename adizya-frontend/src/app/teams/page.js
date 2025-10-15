@@ -8,72 +8,72 @@ import Loading from "@/components/Loading";
 const teamsMems = [
   {
     committee: "PROGRAM COMMITEE",
-    image1Src: "/imgs/teams/hanna.png",
+    image1Src: "/imgs/teams/hanna.webp",
     image1Name: "HANNA",
-    image2src: "/imgs/teams/rey.png",
+    image2src: "/imgs/teams/rey.webp",
     image2name: "REYAN",
     description:
       "Hanna and Reyan breathe life into ADIZYA's vibrant lineup. From coordinating lectures and workshops to organizing competitions and talk shows, they create the exciting, engaging programs that define the festival.",
   },
   {
     committee: "PUBLIC RELATIONS COMMITEE (PRC)",
-    image1Src: "/imgs/teams/niya.png",
+    image1Src: "/imgs/teams/niya.webp",
     image1Name: "NIYA",
-    image2src: "/imgs/teams/niranjana.png",
+    image2src: "/imgs/teams/niranjana.webp",
     image2name: "NIRANJANA",
     description:
       "Charged with spreading the word, Niranjana and Niya lead efforts to promote ADIZYA across campuses. Their outreach ensures maximum participation and an enthusiastic audience for every event.",
   },
   {
     committee: "MARKETING COMMITEE",
-    image1Src: "/imgs/teams/abhinav.png",
+    image1Src: "/imgs/teams/abhinav.webp",
     image1Name: "ABHINAV",
-    image2src: "/imgs/teams/haniya.png",
+    image2src: "/imgs/teams/haniya.webp",
     image2name: "HANIYA",
     description:
       "Haniya and Abhinav spearhead sponsorship acquisition, securing essential support from companies and organizations. They also welcome and mentor junior committee members to sustain and grow the team’s strengths.",
   },
   {
     committee: "MEDIA TEAM",
-    image1Src: "/imgs/teams/chaman.png",
+    image1Src: "/imgs/teams/chaman.webp",
     image1Name: "CHAMAN",
-    image2src: "/imgs/teams/parthav.png",
+    image2src: "/imgs/teams/parthav.webp",
     image2name: "PARTHAV",
     description:
       "Capturing every moment, Chaman and Parthav's media team produces captivating videos, podcasts, and behind-the-scenes content. Their work not only documents the festival but also sharpens skills in photography, videography, and editing.",
   },
   {
     committee: "CONTENT TEAM",
-    image1Src: "/imgs/teams/siri.png",
+    image1Src: "/imgs/teams/siri.webp",
     image1Name: "SIRI",
-    image2src: "/imgs/teams/sarayu.png",
+    image2src: "/imgs/teams/sarayu.webp",
     image2name: "SARAYU",
     description:
       "The wordsmiths of ADIZYA, Siri and Sarayu craft all written material—from official communications to creative scripts—ensuring the festival’s message is clear, engaging, and inspiring.",
   },
   {
     committee: "DESIGN TEAM",
-    image1Src: "/imgs/teams/nadia.png",
+    image1Src: "/imgs/teams/nadia.webp",
     image1Name: "NADIA",
-    image2src: "/imgs/teams/jahnavi.png",
+    image2src: "/imgs/teams/jahnavi.webp",
     image2name: "JAHNAVI",
     description:
       "Jahnavi and Nadia shape the visual identity of ADIZYA through stunning posters, brochures, and digital designs. They welcome beginners eager to develop their design skills alongside the team.",
   },
   {
     committee: "POSTER AND DESIGN (PAD) TEAM",
-    image1Src: "/imgs/teams/yadu.png",
+    image1Src: "/imgs/teams/yadu.webp",
     image1Name: "YADURAJ",
-    image2src: "/imgs/teams/abhinaash.png",
+    image2src: "/imgs/teams/abhinaash.webp",
     image2name: "ABHINAASH",
     description:
       "The architects of experience, Yaduraj and Abhinaash handle all spatial and visual elements including models, installations, and décor, transforming ideas into immersive festival environments.",
   },
   {
     committee: "HOSPITALITY TEAM",
-    image1Src: "/imgs/teams/ayush.png",
+    image1Src: "/imgs/teams/ayush.webp",
     image1Name: "AYUSH",
-    image2src: "/imgs/teams/finu.png",
+    image2src: "/imgs/teams/finu.webp",
     image2name: "FINU",
     description:
       "Ayush and Finu ensure that every guest feels welcomed and cared for. From coordinating arrival and accommodation to managing refreshment needs, they are the gracious hosts that make ADIZYA inviting and comfortable.",
@@ -90,7 +90,7 @@ const TeamsPage = () => {
       return () => clearTimeout(timer);
     }, []);
   return loading ? <Loading/> : (
-    <div className="bg-[url('../../public/imgs/background.png')] bg-contain bg-repeat-y text-[#040404] pb-10">
+    <div className="bg-[url('../../public/imgs/background.webp')] bg-contain bg-repeat-y text-[#040404] pb-10">
       <div className="flex flex-col p-8  items-center justify-center">
         <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
           MEET THE
@@ -111,7 +111,7 @@ const TeamsPage = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="w-[30vw] h-40 md:w-64 md:h-64 relative ">
             <Image
-              src="/imgs/teams/ananas.png"
+              src="/imgs/teams/ananas.webp"
               alt="Ananya"
               fill
               className="object-contain"
@@ -157,7 +157,7 @@ const TeamsPage = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="w-[30vw] h-40 md:w-64 md:h-64 relative">
             <Image
-              src="/imgs/teams/adi.png"
+              src="/imgs/teams/adi.webp"
               alt="Adithya"
               fill
               sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"

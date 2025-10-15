@@ -13,7 +13,7 @@ const AcknowledgementsPage = () => {
   return (
     <div className=" bg-gradient-to-b from-amber-50 via-yellow-50 to-amber-100 flex items-center justify-center px-4 md:px-8 py-12 md:py-24"
       style={{
-        backgroundImage: "url(/imgs/background.png)",
+        backgroundImage: "url(/imgs/background.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import './styles/fonts.css';
 import localFont from "next/font/local";
+import LoaderWrapper from "@/components/LoaderWrapper";
 
 const silverCrown = localFont({
   src: "../../public/fonts/SILVER CROWN.ttf",
@@ -48,9 +49,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        {/* <LoaderWrapper delay={600}> */}
+          <Navbar />
+          {children}
+          <Footer />
+          {/* </LoaderWrapper> */}
       </body>
     </html>
   );

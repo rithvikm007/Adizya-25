@@ -1,6 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import localFont from "next/font/local";
+
+
+const hellasFun = localFont({
+  src: "../../public/fonts/HellasFunPlain.ttf",
+  display: "swap",
+})
+
+const pearlJean = localFont({
+  src: "../../public/fonts/pearl-jean.ttf",
+  display: "swap",
+})
+
+const silverCrown = localFont({
+  src: "../../public/fonts/SILVER_CROWN.ttf",
+  display: "swap",
+})
 
 const NavBar = () => {
   const iconSize = 90;
@@ -36,7 +53,7 @@ const NavBar = () => {
             <li key={index}>
               <a
                 href={item.href}
-                className="hover:text-gray-600 text-[#19213E] text-3xl font-thin transition-colors duration-200 font-pearl-jean"
+                className={`hover:text-gray-600 text-[#19213E] text-3xl font-thin transition-colors duration-200 ${pearlJean.className}`}
               >
                 {item.label}
               </a>
@@ -72,7 +89,7 @@ const NavBar = () => {
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex font-pearl-jean flex-col gap-4 py-6">
+        <ul className={`flex ${pearlJean.className} flex-col gap-4 py-6`}>
           {navItems.map((item, index) => (
             <li key={index}>
               <a

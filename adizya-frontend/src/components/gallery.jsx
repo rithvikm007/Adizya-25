@@ -1,24 +1,40 @@
 "use client"
 import TiltedCard from "./TiltedCard.jsx"
+import localFont from "next/font/local"
 
 const defaultImages = [
-  { src: "/imgs/gallery/gallery1.png", alt: "Gallery Photo 1" },
-  { src: "/imgs/gallery/gallery2.png", alt: "Gallery Photo 2" },
-  { src: "/imgs/gallery/gallery3.png", alt: "Gallery Photo 3" },
-  { src: "/imgs/gallery/gallery4.png", alt: "Gallery Photo 4" },
-  { src: "/imgs/gallery/gallery8.png", alt: "Gallery Photo 8" },
-  { src: "/imgs/gallery/gallery9.png", alt: "Gallery Photo 9" },
-  { src: "/imgs/gallery/gallery5.png", alt: "Gallery Photo 5" },
-  { src: "/imgs/gallery/gallery6.png", alt: "Gallery Photo 6" },
-  { src: "/imgs/gallery/gallery10.png", alt: "Gallery Photo 10" },
-  { src: "/imgs/gallery/gallery7.png", alt: "Gallery Photo 7" },
+  { src: "/imgs/gallery/gallery1.webp", alt: "Gallery Photo 1" },
+  { src: "/imgs/gallery/gallery2.webp", alt: "Gallery Photo 2" },
+  { src: "/imgs/gallery/gallery3.webp", alt: "Gallery Photo 3" },
+  { src: "/imgs/gallery/gallery4.webp", alt: "Gallery Photo 4" },
+  { src: "/imgs/gallery/gallery8.webp", alt: "Gallery Photo 8" },
+  { src: "/imgs/gallery/gallery9.webp", alt: "Gallery Photo 9" },
+  { src: "/imgs/gallery/gallery5.webp", alt: "Gallery Photo 5" },
+  { src: "/imgs/gallery/gallery6.webp", alt: "Gallery Photo 6" },
+  { src: "/imgs/gallery/gallery10.webp", alt: "Gallery Photo 10" },
+  { src: "/imgs/gallery/gallery7.webp", alt: "Gallery Photo 7" },
 ]
+
+const hellasFun = localFont({
+  src: "../../public/fonts/HellasFunPlain.ttf",
+  display: "swap",
+})
+
+const pearlJean = localFont({
+  src: "../../public/fonts/pearl-jean.ttf",
+  display: "swap",
+})
+
+const silverCrown = localFont({
+  src: "../../public/fonts/SILVER_CROWN.ttf",
+  display: "swap",
+})
 
 function Gallery({ title = "PREVIOUS ADIZYA", images = defaultImages }) {
   return (
     <div
       style={{
-        backgroundImage: "url(/imgs/gallery-bg.png)",
+        backgroundImage: "url(/imgs/gallery-bg.webp)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -29,7 +45,7 @@ function Gallery({ title = "PREVIOUS ADIZYA", images = defaultImages }) {
           <header className="mb-6 sm:mb-8 md:mb-10">
             <h2
               id="gallery-title"
-              className="text-pretty silver-font text-left font-serif text-4xl tracking-wide md:text-5xl lg:text-6xl"
+              className={`text-pretty ${silverCrown.className} text-left font-serif text-4xl tracking-wide md:text-5xl lg:text-6xl`}
             >
               {title}
             </h2>
@@ -236,7 +252,7 @@ function Gallery({ title = "PREVIOUS ADIZYA", images = defaultImages }) {
               />
             </div>
             <div className="md:row-span-1 md:col-start-4 md:row-start-11 col-span-2" role="listitem">
-                <p className="hellas-font text-lg">
+                <p className={`${hellasFun.className} text-lg`}>
                 the memories that Adizya has bestowed to everyone who was a part of it !
 
                 </p>

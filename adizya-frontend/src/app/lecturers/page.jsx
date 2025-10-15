@@ -35,7 +35,7 @@ const hornset = localFont({
 
 const keySpeaker = {
   architect: "AR. DEAN D'CRUZ",
-  backgroundImage: "/imgs/dean.png",
+  backgroundImage: "/imgs/dean.webp",
   backgroundColor: "9A2806",
   description:
     "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms.",
@@ -44,7 +44,7 @@ const keySpeaker = {
 const content = [
   {
     architect: "Ar. Shyam Raj Chandroth ",
-    backgroundImage: "/imgs/ShyamRaj.png",
+    backgroundImage: "/imgs/ShyamRaj.webp",
     overlay: "A6360F",
     textColor: "#FFFFFF",
     description:
@@ -53,14 +53,14 @@ const content = [
   {
     architect: "Ar. Guru Prasanna",
     overlay: "D7570E",
-    backgroundImage: "/imgs/SIR.png",
+    backgroundImage: "/imgs/SIR.webp",
     textColor: "#FFFFFF",
     description:
       "Guru Prasanna, after completing his architectural education at the NIT, Tiruchirappalli, and professional training from reputed firms like DAAT (Delhi), Venkatraman Associates (Bangalore), and Brand New Day (Auroville), started his practice under the name of Gargoyle Architecture and Interiors and worked on many residential, commercial and planning projects. After five years of field experience; in 2006 he adjourned to travel and pursue his education in Urban Design and Urban Development (MUDD) at the University of New South Wales, Sydney. Since his return in 2007, he has continued to work as the principal of his current firm BETWEENLINES.",
   },
   {
     architect: "Ar. Sridevi Changali",
-    backgroundImage: "/imgs/Sridevi.png",
+    backgroundImage: "/imgs/Sridevi.webp",
     overlay: "EECE7B",
     textColor: "#434343",
     description:
@@ -96,6 +96,11 @@ const Lectures = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [renderMobile, setRenderMobile] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const checkScreenWidth = () => {
@@ -113,8 +118,10 @@ const Lectures = () => {
     setRenderMobile(isMobile);
   }, [isMobile]);
 
-  return (
-    <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.png')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
+  return loading ? (
+    <Loading />
+  ) : (
+    <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.webp')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
       <h1
         className={`${silverCrown.className} text-7xl text-black tracking-wider text-center lg:text-left lg:mb-6 md:ml-10`}
       >

@@ -3,7 +3,7 @@
 }
 .bg-paper {
   background-image: url("../../../public/imgs/register-bg.png"),
-    url("../../../public/imgs/background.png");
+    url("../../../public/imgs/background.webp");
   background-blend-mode: lighten;
   background-size: cover;
 }

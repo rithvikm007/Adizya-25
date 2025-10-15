@@ -3,6 +3,18 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import localFont from "next/font/local";
+
+const hellasFun = localFont({
+  src: "../../../public/fonts/HellasFunPlain.ttf",
+  display: "swap",
+})
+
+const silverCrown = localFont({
+  src: "../../../public/fonts/SILVER_CROWN.ttf",
+  display: "swap",
+})
+
 gsap.registerPlugin(ScrollTrigger);
 const EntwinedPage = () => {
   const overlayRef = useRef(null);
@@ -45,7 +57,7 @@ const EntwinedPage = () => {
     <section ref={sectionRef} className="relative w-screen min-h-[95vh] h-fit">
       {/* Background Image */}
       <Image
-        src="/imgs/web_map.png"
+        src="/imgs/web_map.webp"
         alt="Background"
         fill
         className="object-cover"
@@ -53,13 +65,13 @@ const EntwinedPage = () => {
       {/* Overlay */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-white/95 pointer-events-none flex items-center justify-center flex-col font-hellas-fun px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20"
+        className={`absolute inset-0 bg-white/95 pointer-events-none flex items-center justify-center flex-col ${hellasFun.className} px-4 sm:px-6 md:px-8 lg:px-12 py-12 sm:py-16 md:py-20`}
         style={{ opacity: 0 }}
       >
         <div className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl tracking-wider uppercase text-gray-700">
           ADIZYA'25 THEME
         </div>
-        <h1 className="font-silver-crown text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-gray-900 tracking-wide">
+        <h1 className={`${silverCrown.className} text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[10rem] mb-4 sm:mb-5 md:mb-6 lg:mb-7 text-gray-900 tracking-wide`}>
           ENTWINED
         </h1>
         <div className="mt-4 sm:mt-5 md:mt-6 lg:mt-8 text-sm sm:text-base md:text-lg lg:text-xl xl:text-3xl text-gray-800/95 max-w-7xl mx-auto leading-relaxed">

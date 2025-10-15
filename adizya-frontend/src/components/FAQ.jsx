@@ -2,6 +2,17 @@
 
 import { useState } from "react"
 import { FaChevronDown } from "react-icons/fa"
+import localFont from "next/font/local"
+
+const pearlJean = localFont({
+  src: "../../public/fonts/pearl-jean.ttf",
+  display: "swap",
+})
+
+const silverCrown = localFont({
+  src: "../../public/fonts/SILVER_CROWN.ttf",
+  display: "swap",
+})
 
 const FAQ = () => {
   const [selectedFAQIndex, setSelectedFAQIndex] = useState(-1)
@@ -30,9 +41,9 @@ const FAQ = () => {
   ]
 
   return (
-    <div className="w-full flex flex-col gap-10 bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/herobg.png')] bg-cover bg-center bg-no-repeat  text-black">
-      <h1 className="font-silver-crown text-8xl ml-8">FAQ</h1>
-      <div className="font-pearl-jean flex flex-col text-3xl">
+    <div className="w-full flex flex-col gap-10 bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/herobg.webp')] bg-cover bg-center bg-no-repeat  text-black">
+      <h1 className={`${silverCrown.className} text-8xl ml-8`}>FAQ</h1>
+      <div className={`${pearlJean.className} flex flex-col text-3xl`}>
         {faqs.map((faq, index) => (
           <div
             key={index}

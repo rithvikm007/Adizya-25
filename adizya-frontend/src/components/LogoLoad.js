@@ -21,7 +21,7 @@ export default function LogoLoad() {
         >
         <div className="w-full flex flex-col justify-center items-center gap-y-10 absolute z-10 top-0 h-full fade-in-el"
           style={{
-            backgroundImage: "url('/imgs/herobg.png')",
+            backgroundImage: "url('/imgs/herobg.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

@@ -6,7 +6,7 @@ const Footer = () => {
   const instagramLink = "https://www.instagram.com/";
 
   return (
-    <footer className="w-full bg-[var(--secondary-color)] bg-[url('/imgs/footer-bg.png')] bg-cover bg-center bg-no-repeat">
+    <footer className="w-full bg-[var(--secondary-color)] bg-[url('/imgs/footer-bg.webp')] bg-cover bg-center bg-no-repeat">
       <div className="flex flex-col lg:flex-row justify-between p-4 sm:p-6 lg:p-10 gap-6 sm:gap-8 lg:gap-0 items-center">
         <div className="flex flex-col lg:flex-row lg:h-full lg:items-end items-center gap-4 sm:gap-6 lg:gap-0">
           <div className="flex flex-col items-center">
