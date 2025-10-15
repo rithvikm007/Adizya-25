@@ -120,13 +120,13 @@ const AboutUs = () => {
 
       <img
         ref={blueRef}
-        src="/imgs/blue-outline.png"
+        src="/imgs/blue-outline.webp"
         alt="People illustration"
         className="absolute bottom-[-70px] left-0 w-full h-auto"
       />
       <img
         ref={pplRef}
-        src="/imgs/ppl.png"
+        src="/imgs/ppl.webp"
         alt="People illustration"
         className="absolute bottom-[20vh] lg:bottom-0 left-0 w-full md:h-auto"
       />
