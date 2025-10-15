@@ -2,6 +2,6 @@
     --placeholder-color: #D4DBF7;
 }
 .bg-paper {
-    background-image: url('../../../public/imgs/background.png');    
+    background-image: url('../../../public/imgs/background.webp');    
     background-blend-mode: lighten;
 }

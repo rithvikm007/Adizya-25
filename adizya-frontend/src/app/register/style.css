@@ -2,7 +2,7 @@
   --placeholder-color: #d4dbf7;
 }
 .bg-paper {
-  background-image: url("../../../public/imgs/register-bg.png"),
+  background-image: url("../../../public/imgs/register-bg.webp"),
     url("../../../public/imgs/background.webp");
   background-blend-mode: lighten;
   background-size: cover;
