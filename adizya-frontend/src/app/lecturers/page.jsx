@@ -33,6 +33,10 @@ const hornset = localFont({
   src: "../../../public/fonts/Hornset.ttf",
 });
 
+const hellasFunBold = localFont({
+  src: "../../../public/fonts/HellasFunBold.ttf"
+})
+
 const keySpeaker = {
   architect: "AR. DEAN D'CRUZ",
   backgroundImage: "/imgs/dean.webp",
@@ -40,6 +44,7 @@ const keySpeaker = {
   description:
     "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms.",
 };
+
 
 const content = [
   {
@@ -118,17 +123,18 @@ const Lectures = () => {
     setRenderMobile(isMobile);
   }, [isMobile]);
 
-  return loading ? (
-    <Loading />
-  ) : (
+  return loading ? <Loading /> : (
     <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.webp')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
-      <h1
-        className={`${silverCrown.className} text-7xl text-black tracking-wider text-center lg:text-left lg:mb-6 md:ml-10`}
-      >
-        KEY SPEAKER
-      </h1>
+      <div className="flex flex-col items-center justify-between md:flex-row">
+        <h1
+          className={`${silverCrown.className} text-7xl text-black tracking-wider text-center lg:text-left lg:mb-6 md:ml-10`}
+        >
+          KEY SPEAKER
+        </h1>
+        <h2 className={`text-lg md:text-4xl mt-6 md:mt-0 text-[#3B3B3B] ${hellasFunBold.className} md:mr-10 font-extrabold`}>lecture on 26th Oct, 2:00-3:30 pm</h2>
+      </div>
 
-      <div className="my-4 md:m-10 h-auto md:h-[70vh] flex overflow-hidden relative mb-10 md:mb-20">
+      <div className="my-4 md:mx-10 h-auto md:h-[70vh] flex overflow-hidden relative mb-10 md:mb-20">
         <div className="h-full w-full overflow-hidden relative">
           <div className="absolute inset-0 hidden md:block">
             {keySpeaker.backgroundImage ? (
@@ -205,12 +211,12 @@ const Lectures = () => {
             />
           ) : (
             <LecturesDesktop
-              key={index}
+              index={index}
               architect={item.architect}
               backgroundImage={item.backgroundImage}
               overlay={item.overlay}
               description={item.description}
-              index={index}
+              key={index}
               isHovered={isHovered}
               isOtherHovered={isOtherHovered}
               setHoveredIndex={setHoveredIndex}
