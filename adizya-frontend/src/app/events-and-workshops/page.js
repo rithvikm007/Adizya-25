@@ -136,7 +136,6 @@ export default function WorkshopSlider() {
   const [imageIndex, setImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
   const autoSlideRef = useRef(null);
   const pauseTimeoutRef = useRef(null);
 
@@ -145,7 +144,6 @@ export default function WorkshopSlider() {
 
   // --- Initial Load ---
   useEffect(() => {
-    setMounted(true);
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -201,8 +199,6 @@ export default function WorkshopSlider() {
     center: { x: 0, opacity: 1 },
     exit: { x: -100, opacity: 0 },
   };
-  if (!mounted) return <div className="h-screen fixed inset-0 bg-[#f9eac6]" />;
-
   return loading ? <Loading /> : (
     <div
       className="flex flex-col overflow-x-hidden bg-[#f9eac6]"
