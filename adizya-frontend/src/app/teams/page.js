@@ -80,8 +80,17 @@ const teamsMems = [
 const hornset = localFont({ src: "../../../public/fonts//Hornset.ttf" });
 const pearlJean = localFont({ src: "../../../public/fonts/PearlJean.otf" });
 const TeamsPage = () => {
-  return (
-    <div className="bg-[url('../../public/imgs/background.webp')] bg-contain bg-repeat-y text-[#040404] pb-10">
+  const [mounted, setMounted] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setMounted(true);
+    const timer = setTimeout(() => setLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []); 
+  if (!mounted) return <div className="h-screen fixed inset-0 bg-[#f9eac6]" />;
+
+  return loading ? <Loading/> : (
+    <div className="bg-[url('../../public/imgs/background.webp')] bg-contain bg-repeat-y text-[#040404] pb-10" suppressHydrationWarning={true}>
       <div className="flex flex-col p-8  items-center justify-center">
         <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
           MEET THE
