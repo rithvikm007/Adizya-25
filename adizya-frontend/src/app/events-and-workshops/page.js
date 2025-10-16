@@ -5,47 +5,82 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Loading from "@/components/Loading";
 import localFont from "next/font/local";
+import { useRouter } from "next/navigation";
 
 const hellasFun = localFont({
   src: "../../../public/fonts/HellasFunPlain.ttf",
   display: "swap",
-})
+});
 
 const pearlJean = localFont({
   src: "../../../public/fonts/pearl-jean.ttf",
   display: "swap",
-})
+});
 
 const silverCrown = localFont({
   src: "../../../public/fonts/SILVER_CROWN.ttf",
   display: "swap",
-})
+});
 
 const WorkshopDesc1 = () => (
-  <div className={`${hellasFun.className} text-lg sm:text-xl lg:text-2xl space-y-2`}>
-    <p><span className="font-semibold">Date-</span> 24th October</p>
-    <p><span className="font-semibold">Time-</span> 2:00 to 4:00 PM</p>
-    <p><span className="font-semibold">Reg fee-</span> Rs 250</p>
+  <div
+    className={`${hellasFun.className} text-lg sm:text-xl lg:text-2xl space-y-2`}
+  >
+    <p>
+      <span className="font-semibold">Date-</span> 24th October
+    </p>
+    <p>
+      <span className="font-semibold">Time-</span> 2:00 to 4:00 PM
+    </p>
+    <p>
+      <span className="font-semibold">Reg fee-</span> Rs 250
+    </p>
   </div>
 );
 
 const WorkshopDesc2 = () => (
-  <div className={`${hellasFun.className} text-base sm:text-xl lg:text-2xl space-y-2`}>
-    <p><span className="font-semibold">Date-</span> 25th - 2:00-4:00</p>
-    <p><span className="font-semibold invisible">Date-</span> 26th - 2:00-5:00</p>
-    <p><span className="font-semibold">Reg fee-</span> single- Rs 400</p>
-    <p><span className="font-semibold invisible">Reg fee-</span> pair- Rs 700</p>
+  <div
+    className={`${hellasFun.className} text-base sm:text-xl lg:text-2xl space-y-2`}
+  >
+    <p>
+      <span className="font-semibold">Date-</span> 25th - 2:00-4:00
+    </p>
+    <p>
+      <span className="font-semibold invisible">Date-</span> 26th - 2:00-5:00
+    </p>
+    <p>
+      <span className="font-semibold">Reg fee-</span> single- Rs 400
+    </p>
+    <p>
+      <span className="font-semibold invisible">Reg fee-</span> pair- Rs 700
+    </p>
   </div>
 );
 
 const WorkshopDesc3 = () => (
-  <div className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}>
-    <p><span className="font-semibold">Date-</span> 25th October</p>
-    <p><span className="font-semibold">Time-</span> 4:00-6:00 PM</p>
-    <p><span className="font-semibold">Hand building-</span> single entry: Rs 200</p>
-    <p><span className="font-semibold invisible">Hand building-</span> pair entry: Rs 350</p>
-    <p><span className="font-semibold">Wheel Pottery-</span> single entry: Rs 250</p>
-    <p><span className="font-semibold invisible">Wheel Pottery-</span> pair entry: Rs 400</p>
+  <div
+    className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
+  >
+    <p>
+      <span className="font-semibold">Date-</span> 25th October
+    </p>
+    <p>
+      <span className="font-semibold">Time-</span> 4:00-6:00 PM
+    </p>
+    <p>
+      <span className="font-semibold">Hand building-</span> single entry: Rs 200
+    </p>
+    <p>
+      <span className="font-semibold invisible">Hand building-</span> pair
+      entry: Rs 350
+    </p>
+    <p>
+      <span className="font-semibold">Wheel Pottery-</span> single entry: Rs 250
+    </p>
+    <p>
+      <span className="font-semibold invisible">Wheel Pottery-</span> pair
+      entry: Rs 400
+    </p>
   </div>
 );
 
@@ -55,10 +90,15 @@ const workshops = [
     id: 1,
     title: "PYROGRAPHY",
     subtitle: "FIREART WORKSHOP",
-    imgs: ["/imgs/events-workshops/pyro1.webp", "/imgs/events-workshops/pyro2.webp", "/imgs/events-workshops/pyro3.webp"],
+    imgs: [
+      "/imgs/events-workshops/pyro1.webp",
+      "/imgs/events-workshops/pyro2.webp",
+      "/imgs/events-workshops/pyro3.webp",
+    ],
     color: "#D7570E",
     secColor: "#953600",
     instructor: "Arta Raituma",
+    formLink: "https://www.adizya.org/forms/Ps797VKJr6AxJs18gloo",
     desc: <WorkshopDesc1 />,
     contacts: [
       { name: "Reyan", phone: "+91 80893 40470" },
@@ -69,10 +109,15 @@ const workshops = [
     id: 2,
     title: "BEYOND THE SHOT",
     subtitle: "PHOTOGRAPHY LECTURE & WORKSHOP",
-    imgs: ["/imgs/events-workshops/bts1.webp", "/imgs/events-workshops/bts2.webp", "/imgs/events-workshops/bts3.webp"],
+    imgs: [
+      "/imgs/events-workshops/bts1.webp",
+      "/imgs/events-workshops/bts2.webp",
+      "/imgs/events-workshops/bts3.webp",
+    ],
     color: "#DF913E",
     secColor: "#8E4E09",
     instructor: "Fabien Charau",
+    formLink: "https://www.adizya.org/forms/FQpRlUW1czfHjRL2wEhP",
     desc: <WorkshopDesc2 />,
     contacts: [
       { name: "Reyan", phone: "+91 80893 40470" },
@@ -83,10 +128,14 @@ const workshops = [
     id: 3,
     title: "TERRACRAFT",
     subtitle: "POTTERY WORKSHOP",
-    imgs: ["/imgs/events-workshops/terra1.webp", "/imgs/events-workshops/terra2.webp"],
+    imgs: [
+      "/imgs/events-workshops/terra1.webp",
+      "/imgs/events-workshops/terra2.webp",
+    ],
     color: "#EECE7B",
     secColor: "#CBA045",
     instructor: "Plant Aura",
+    formLink: "https://www.adizya.org/forms/0OcZrb8eWP3GNhKEYIh0",
     desc: <WorkshopDesc3 />,
     contacts: [
       { name: "Reyan", phone: "+91 80893 40470" },
@@ -102,10 +151,18 @@ const workshops = [
     secColor: "#516307",
     instructor: "Chef Mike",
     desc: (
-      <div className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}>
-        <p><span className="font-semibold">Date-</span> April 5, 2024</p>
-        <p><span className="font-semibold">Time-</span> 2:00 PM - 6:00 PM</p>
-        <p><span className="font-semibold">Reg fee-</span> Rs 600</p>
+      <div
+        className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
+      >
+        <p>
+          <span className="font-semibold">Date-</span> April 5, 2024
+        </p>
+        <p>
+          <span className="font-semibold">Time-</span> 2:00 PM - 6:00 PM
+        </p>
+        <p>
+          <span className="font-semibold">Reg fee-</span> Rs 600
+        </p>
       </div>
     ),
     contacts: [{ name: "Contact", phone: "+91 12345 67890" }],
@@ -119,10 +176,18 @@ const workshops = [
     secColor: "#304081",
     instructor: "Photo Pro",
     desc: (
-      <div className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}>
-        <p><span className="font-semibold">Date-</span> April 12, 2024</p>
-        <p><span className="font-semibold">Time-</span> 8:00 AM - 2:00 PM</p>
-        <p><span className="font-semibold">Reg fee-</span> Rs 450</p>
+      <div
+        className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
+      >
+        <p>
+          <span className="font-semibold">Date-</span> April 12, 2024
+        </p>
+        <p>
+          <span className="font-semibold">Time-</span> 8:00 AM - 2:00 PM
+        </p>
+        <p>
+          <span className="font-semibold">Reg fee-</span> Rs 450
+        </p>
       </div>
     ),
     contacts: [{ name: "Contact", phone: "+91 12345 67890" }],
@@ -138,7 +203,7 @@ export default function WorkshopSlider() {
   const [loading, setLoading] = useState(true);
   const autoSlideRef = useRef(null);
   const pauseTimeoutRef = useRef(null);
-
+  const router = useRouter();
   const current = workshops[index];
   const images = useMemo(() => current.imgs || [], [current]);
 
@@ -183,13 +248,13 @@ export default function WorkshopSlider() {
   const slideVariants = {
     enter: (dir) => ({
       y: isMobile ? (dir > 0 ? 200 : -200) : 0,
-      x: isMobile ? 0 : (dir > 0 ? 200 : -200),
+      x: isMobile ? 0 : dir > 0 ? 200 : -200,
       opacity: 0,
     }),
     center: { x: 0, y: 0, opacity: 1 },
     exit: (dir) => ({
       y: isMobile ? (dir > 0 ? -200 : 200) : 0,
-      x: isMobile ? 0 : (dir > 0 ? -200 : 200),
+      x: isMobile ? 0 : dir > 0 ? -200 : 200,
       opacity: 0,
     }),
   };
@@ -200,7 +265,9 @@ export default function WorkshopSlider() {
     exit: { x: -100, opacity: 0 },
   };
 
-  return loading ? <Loading /> : (
+  return loading ? (
+    <Loading />
+  ) : (
     <div
       className="flex flex-col overflow-x-hidden bg-[#f9eac6]"
       style={{
@@ -209,7 +276,9 @@ export default function WorkshopSlider() {
         backgroundPosition: "center",
       }}
     >
-      <h1 className={`text-5xl sm:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] ${silverCrown.className} px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center`}>
+      <h1
+        className={`text-5xl sm:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] ${silverCrown.className} px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center`}
+      >
         EVENTS AND WORKSHOPS
       </h1>
 
@@ -285,14 +354,18 @@ export default function WorkshopSlider() {
                     <>
                       <button
                         onClick={() =>
-                          setImageIndex((p) => (p - 1 + images.length) % images.length)
+                          setImageIndex(
+                            (p) => (p - 1 + images.length) % images.length
+                          )
                         }
                         className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg"
                       >
                         <ChevronLeft className="w-6 h-6 text-gray-800" />
                       </button>
                       <button
-                        onClick={() => setImageIndex((p) => (p + 1) % images.length)}
+                        onClick={() =>
+                          setImageIndex((p) => (p + 1) % images.length)
+                        }
                         className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg"
                       >
                         <ChevronRight className="w-6 h-6 text-gray-800" />
@@ -315,22 +388,29 @@ export default function WorkshopSlider() {
 
                 {/* --- Info Section --- */}
                 <div
-                  className="w-full lg:w-1/3 flex flex-col justify-between p-6 rounded-xl text-black"
+                  className="w-full lg:w-1/3 flex flex-col justify-between p-6 rounded-xl md:mr-12 text-black"
                   style={{ backgroundColor: current.color }}
                 >
                   <div>
-                    <h2 className={`text-5xl ${pearlJean.className} font-bold text-[#19213E] leading-tight`}>
+                    <h2
+                      className={`text-5xl ${pearlJean.className} font-bold text-[#19213E] leading-tight`}
+                    >
                       {current.title}-
                     </h2>
-                    <p className={`text-2xl ${hellasFun.className} text-[#19213E] mt-1`}>
+                    <p
+                      className={`text-2xl ${hellasFun.className} text-[#19213E] mt-1`}
+                    >
                       {current.subtitle}
                     </p>
                     <p className={`text-3xl font-bold ${hellasFun.className}`}>
-                      <span className="font-bold">by-</span> {current.instructor}
+                      <span className="font-bold">by-</span>{" "}
+                      {current.instructor}
                     </p>
                   </div>
 
-                  <div className={`${hellasFun.className} text-xl lg:text-2xl space-y-3 mt-4 flex-grow`}>
+                  <div
+                    className={`${hellasFun.className} text-xl lg:text-2xl space-y-3 mt-4 flex-grow`}
+                  >
                     {current.desc}
                     <div>
                       <p className="font-semibold">Contact-</p>
@@ -342,12 +422,18 @@ export default function WorkshopSlider() {
                     </div>
                   </div>
 
-                  <button
-                    className="w-full py-4 rounded-lg text-xl font-semibold hover:opacity-90 transition-opacity mt-4"
-                    style={{ backgroundColor: current.secColor, color: "#000" }}
-                  >
-                    register here
-                  </button>
+                  {current.formLink && (
+                    <button
+                      onClick={() => router.push(current.formLink)}
+                      className="w-full py-4 rounded-lg text-xl cursor-pointer font-semibold hover:opacity-90 transition-opacity mt-4"
+                      style={{
+                        backgroundColor: current.secColor,
+                        color: "#000",
+                      }}
+                    >
+                      register here
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 import localFont from "next/font/local";
 
 const pearlJean = localFont({
@@ -87,9 +88,10 @@ const Footer = () => {
 
         <div>
           <div className="flex flex-col mb-6 lg:mb-0 lg:flex-row items-center">
-            <img
+            <Image
               src="/imgs/adizya.svg"
               width={adizyaIconSize}
+              height={adizyaIconSize}
               alt="Adizya Logo"
             />
             <h3 className={`${silverCrown.className} text-5xl text-[#363636] text-nowrap`}>

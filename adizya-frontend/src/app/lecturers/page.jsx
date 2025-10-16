@@ -72,7 +72,7 @@ const content = [
       "Ar. Sridevi Changali, Co-founder of masonsinkarchitecture, an architect dedicated to sustainable design and heritage conservation. With her extensive experience in restoring city-level and building-level heritage projects, Sridevi brings a unique blend of ecological sensitivity and modern architectural wisdom to the forefront.",
   },
   {
-    architect: "Architect Name",
+    architect: "Coming Soon...",
     overlay: "6777B5",
     backgroundImage: null,
     textColor: "#FFFFFF",
@@ -80,7 +80,7 @@ const content = [
       "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
   },
   {
-    architect: "Architect Name",
+    architect: "Comming Soon...",
     overlay: "6777F6",
     backgroundImage: null,
     textColor: "#FFFFFF",
@@ -88,7 +88,7 @@ const content = [
       "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
   },
   {
-    architect: "Architect Name",
+    architect: "Coming Soon...",
     overlay: "6777F6",
     backgroundImage: null,
     textColor: "#FFFFFF",

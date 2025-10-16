@@ -126,7 +126,7 @@ const LecturesDesktop = ({
               ease: [0.4, 0, 0.2, 1],
             }}
           >
-            {backgroundImage && (
+            {backgroundImage ? (
               <>
                 <h1
                   className={`${hornset.className} text-7xl mb-5`}
@@ -142,7 +142,12 @@ const LecturesDesktop = ({
                   {description}
                 </p>
               </>
-            )}
+            ) :  <h1
+                  className={`${hornset.className} text-7xl mb-5`}
+                  style={{ color: `${textColor}` }}
+                >
+                  Coming Soon...
+                </h1>}
           </motion.div>
         </div>
       </motion.div>
