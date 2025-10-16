@@ -1,8 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import './styles/fonts.css';
+import "./styles/fonts.css";
 import localFont from "next/font/local";
-import LoaderWrapper from "@/components/LoaderWrapper";
 
 const silverCrown = localFont({
   src: "../../public/fonts/SILVER CROWN.ttf",
@@ -19,7 +18,6 @@ const hellasFun = localFont({
   variable: "--font-hellasfun",
 });
 
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -36,24 +34,20 @@ export const metadata = {
   title: "Adizya 25",
   description: "NIT Calicut Architecture Fest",
   icons: {
-    icon: "/imgs/adizya.svg", // Path inside the public/ folder
+    icon: "/imgs/adizya.svg",
     shortcut: "/imgs/adizya.svg",
     apple: "/imgs/adizya.svg",
   },
 };
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${silverCrown.variable} ${pearlJean.variable} ${hellasFun.variable} antialiased`}
       >
-        {/* <LoaderWrapper delay={600}> */}
-          <Navbar />
-          {children}
-          <Footer />
-          {/* </LoaderWrapper> */}
+        {children}
+        <Footer />
       </body>
     </html>
   );

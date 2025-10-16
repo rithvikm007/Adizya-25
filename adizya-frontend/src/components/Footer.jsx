@@ -7,12 +7,12 @@ import localFont from "next/font/local";
 const pearlJean = localFont({
   src: "../../public/fonts/pearl-jean.ttf",
   display: "swap",
-})
+});
 
 const silverCrown = localFont({
   src: "../../public/fonts/SILVER_CROWN.ttf",
   display: "swap",
-})
+});
 
 const Footer = () => {
   const navLinks = [
@@ -73,7 +73,9 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className={`flex flex-col gap-5 font-medium text-[#363636] ${pearlJean.className} text-sm lg:text-xl`}>
+        <div
+          className={`flex flex-col gap-5 font-medium text-[#363636] ${pearlJean.className} text-sm lg:text-xl`}
+        >
           <h3>Contact Us at adizya@nitc.ac.in</h3>
           <h3>
             National Institute of Technology Calicut Kozhikode, Kerala, 673 601,
@@ -92,7 +94,9 @@ const Footer = () => {
               width={adizyaIconSize}
               alt="Adizya Logo"
             />
-            <h3 className={`${silverCrown.className} text-5xl text-[#363636] text-nowrap`}>
+            <h3
+              className={`${silverCrown.className} text-5xl text-[#363636] text-nowrap`}
+            >
               ADIZYA 25
             </h3>
           </div>
@@ -111,7 +115,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[var(--primary-color)] h-20"></div>
+      ={" "}
     </nav>
   );
 };
