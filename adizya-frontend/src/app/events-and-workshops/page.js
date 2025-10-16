@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
 import localFont from "next/font/local";
 import { useRouter } from "next/navigation";
@@ -23,9 +24,7 @@ const silverCrown = localFont({
 });
 
 const WorkshopDesc1 = () => (
-  <div
-    className={`${hellasFun.className} text-lg sm:text-xl lg:text-2xl space-y-2`}
-  >
+  <div className={`${hellasFun.className} text-2xl lg:text-2xl space-y-2`}>
     <p>
       <span className="font-semibold">Date-</span> 24th October
     </p>
@@ -39,9 +38,7 @@ const WorkshopDesc1 = () => (
 );
 
 const WorkshopDesc2 = () => (
-  <div
-    className={`${hellasFun.className} text-base sm:text-xl lg:text-2xl space-y-2`}
-  >
+  <div className={`${hellasFun.className} text-2xl lg:text-2xl space-y-2`}>
     <p>
       <span className="font-semibold">Date-</span> 25th - 2:00-4:00
     </p>
@@ -58,9 +55,7 @@ const WorkshopDesc2 = () => (
 );
 
 const WorkshopDesc3 = () => (
-  <div
-    className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
-  >
+  <div className={`${hellasFun.className} text-2xl lg:text-2xl space-y-2`}>
     <p>
       <span className="font-semibold">Date-</span> 25th October
     </p>
@@ -151,9 +146,7 @@ const workshops = [
     secColor: "#516307",
     instructor: "Chef Mike",
     desc: (
-      <div
-        className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
-      >
+      <div className={`${hellasFun.className} text-2xl lg:text-2xl space-y-2`}>
         <p>
           <span className="font-semibold">Date-</span> April 5, 2024
         </p>
@@ -176,9 +169,7 @@ const workshops = [
     secColor: "#304081",
     instructor: "Photo Pro",
     desc: (
-      <div
-        className={`${hellasFun.className} text-base sm:text-lg lg:text-2xl space-y-2`}
-      >
+      <div className={`${hellasFun.className} text-2xl lg:text-2xl space-y-2`}>
         <p>
           <span className="font-semibold">Date-</span> April 12, 2024
         </p>
@@ -264,7 +255,9 @@ export default function WorkshopSlider() {
     center: { x: 0, opacity: 1 },
     exit: { x: -100, opacity: 0 },
   };
-  return loading ? <Loading /> : (
+  return loading ? (
+    <Loading />
+  ) : (
     <div
       className="flex flex-col overflow-x-hidden bg-[#f9eac6]"
       style={{
@@ -274,6 +267,8 @@ export default function WorkshopSlider() {
       }}
       suppressHydrationWarning={true}
     >
+      <Navbar />
+
       <h1
         className={`text-5xl sm:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] ${silverCrown.className} px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center`}
       >
@@ -281,7 +276,7 @@ export default function WorkshopSlider() {
       </h1>
 
       {/* --- Mobile Navigation Circles --- */}
-      <div className="lg:hidden absolute right-2 top-1/2 -translate-y-1/3 flex flex-col space-y-4 z-30">
+      <div className="lg:hidden flex justify-center items-center gap-4 mt-6 mb-8">
         {workshops.map((w, i) => (
           <button
             key={w.id}
@@ -289,7 +284,10 @@ export default function WorkshopSlider() {
             className={`w-10 h-10 rounded-full border-2 cursor-pointer transition-all duration-300 ${
               i === index ? "border-4 shadow-lg scale-110" : "hover:scale-105"
             }`}
-            style={{ backgroundColor: w.color, borderColor: w.secColor }}
+            style={{
+              backgroundColor: w.color,
+              borderColor: w.secColor,
+            }}
             aria-label={`View ${w.title}`}
           />
         ))}
@@ -386,35 +384,44 @@ export default function WorkshopSlider() {
 
                 {/* --- Info Section --- */}
                 <div
-                  className="w-full lg:w-1/3 flex flex-col justify-between p-6 rounded-xl md:mr-12 text-black"
+                  className="w-full lg:w-1/3 flex flex-col justify-between p-6 rounded-2xl text-black shadow-md"
                   style={{ backgroundColor: current.color }}
                 >
-                  <div>
+                  {/* Title and Subtitle */}
+                  <div className="space-y-1">
                     <h2
-                      className={`text-5xl ${pearlJean.className} font-bold text-[#19213E] leading-tight`}
+                      className={`text-4xl lg:text-5xl ${pearlJean.className} font-bold text-[#19213E] leading-[1.1]`}
                     >
                       {current.title}-
                     </h2>
                     <p
-                      className={`text-2xl ${hellasFun.className} text-[#19213E] mt-1`}
+                      className={`text-lg lg:text-xl tracking-wide ${hellasFun.className} text-[#19213E] uppercase`}
                     >
                       {current.subtitle}
                     </p>
-                    <p className={`text-3xl font-bold ${hellasFun.className}`}>
-                      <span className="font-bold">by-</span>{" "}
+                    <p
+                      className={`text-2xl lg:text-3xl font-bold mt-2 ${hellasFun.className}`}
+                      style={{ color: "#19213E" }}
+                    >
+                      <span className="font-semibold">by&nbsp;</span>
                       {current.instructor}
                     </p>
                   </div>
 
+                  {/* Description + Contact */}
                   <div
-                    className={`${hellasFun.className} text-xl lg:text-2xl space-y-3 mt-4 flex-grow`}
+                    className={`${hellasFun.className} text-base lg:text-xl space-y-2 mt-5 flex-grow leading-relaxed`}
                   >
                     {current.desc}
-                    <div>
-                      <p className="font-semibold">Contact-</p>
+
+                    <div className="mt-4 space-y-1">
+                      <p className="font-semibold text-[#19213E] uppercase">
+                        Contact
+                      </p>
                       {current.contacts.map((c, i) => (
-                        <p key={i}>
-                          {c.name}: {c.phone}
+                        <p key={i} className="flex justify-between pr-2">
+                          <span>{c.name}</span>
+                          <span className="font-medium">{c.phone}</span>
                         </p>
                       ))}
                     </div>

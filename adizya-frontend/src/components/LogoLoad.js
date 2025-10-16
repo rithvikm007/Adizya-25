@@ -129,7 +129,13 @@ export default function LogoLoad() {
       <section className="relative h-full w-full">
         <video
           ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover z-10"
+          className="absolute inset-0 w-full h-full object-cover z-10
+                     object-center
+                     md:object-center"
+          style={{
+            objectPosition: "47% 50%",
+            transform: "scale(0.9)",
+          }}
           autoPlay
           muted
           playsInline
@@ -154,7 +160,7 @@ export default function LogoLoad() {
             <h1
               ref={titleRef}
               className={
-                "md:text-9xl text-9xl text-(--color-headers) transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
+                "md:text-[12rem] text-9xl text-(--color-headers) transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
                 silverCrown.className
               }
             >
@@ -165,7 +171,7 @@ export default function LogoLoad() {
           <h4
             ref={dateRef}
             className={
-              "md:text-4xl text-2xl text-(--color-headers) transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
+              "md:text-[2.5em] text-2xl text-(--color-headers) transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
               pearlJean.className
             }
           >
@@ -180,7 +186,7 @@ export default function LogoLoad() {
             <h3
               ref={locationRef}
               className={
-                "text-[#363636] text-6xl tracking-wider md:text-6xl transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
+                "text-[#363636] text-6xl tracking-wider md:text-[4rem] transition-transform duration-300 ease-out hover:-translate-y-2 cursor-pointer " +
                 hornset.className
               }
             >

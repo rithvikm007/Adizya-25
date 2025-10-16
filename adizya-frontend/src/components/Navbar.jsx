@@ -72,7 +72,7 @@ const NavBar = () => {
               src="/imgs/adizya.svg"
               alt="Adizya Logo"
               width={iconSize}
-              className="w-16 sm:w-20 lg:w-14 py-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ml-2"
+              className="w-12 sm:w-20 lg:w-14 py-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] ml-2"
             />
           </a>
         </div>
