@@ -136,6 +136,7 @@ export default function WorkshopSlider() {
   const [imageIndex, setImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
   const autoSlideRef = useRef(null);
   const pauseTimeoutRef = useRef(null);
 
@@ -144,6 +145,7 @@ export default function WorkshopSlider() {
 
   // --- Initial Load ---
   useEffect(() => {
+    setMounted(true);
     const timer = setTimeout(() => setLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
@@ -199,6 +201,7 @@ export default function WorkshopSlider() {
     center: { x: 0, opacity: 1 },
     exit: { x: -100, opacity: 0 },
   };
+  if (!mounted) return <div className="h-screen fixed inset-0 bg-[#f9eac6]" />;
 
   return loading ? <Loading /> : (
     <div
@@ -208,6 +211,7 @@ export default function WorkshopSlider() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      suppressHydrationWarning={true}
     >
       <h1 className={`text-5xl sm:text-6xl tracking-wider mb-4 sm:mb-6 text-[#19213E] ${silverCrown.className} px-4 lg:ml-10 mt-6 sm:mt-8 lg:text-left text-center`}>
         EVENTS AND WORKSHOPS
