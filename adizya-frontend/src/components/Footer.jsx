@@ -64,13 +64,13 @@ const Footer = () => {
       <div className="width-100 flex flex-col lg:flex-row gap-8 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.webp')] bg-cover bg-center bg-no-repeat">
         <div className="flex flex-col gap-4">
           {navLinks.map((link, index) => (
-            <Link
+            <a
               key={index}
               className={`${pearlJean.className} text-[#363636] font-medium text-lg lg:text-2xl hover:text-gray-600`}
               href={link.href}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </div>
 

@@ -1,5 +1,8 @@
-import localFont from "next/font/local";
+"use client";
 
+import localFont from "next/font/local";
+import { useState, useEffect } from "react";
+import Loading from "../../components/Loading";
 import TeamSection from "./section";
 import Image from "next/image";
 const teamsMems = [
