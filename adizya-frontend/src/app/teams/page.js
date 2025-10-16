@@ -1,10 +1,10 @@
 "use client";
+
 import localFont from "next/font/local";
 import { useState, useEffect } from "react";
+import Loading from "../../components/Loading";
 import TeamSection from "./section";
 import Image from "next/image";
-import Loading from "@/components/Loading";
-
 const teamsMems = [
   {
     committee: "PROGRAM COMMITEE",
@@ -187,6 +187,18 @@ const TeamsPage = () => {
           description={member.description}
         />
       ))}
+      <div className="mt-12 px-4 md:px-8">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 lg:mb-10 font-silver-crown tracking-wider text-center text-[#19213E]">
+          ADIZYA 2025 TECH TEAM
+        </h1>
+        <div className={`flex ${pearlJean.className} justify-center flex-wrap gap-4 sm:gap-8 md:gap-12 lg:gap-16 xl:gap-32`}>
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl">M RITHVIK REDDY</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl">SREEHARI SANJEEV</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl">ALVIN AS</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl">NIRMAL THOMAS MATHEW</h3>
+          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl">NISHANTH K NIZAR</h3>
+        </div>
+      </div>
     </div>
   );
 };

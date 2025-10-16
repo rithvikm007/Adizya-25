@@ -66,14 +66,19 @@ const LecturesMobile = ({index, architect, image, description, backgroundColor, 
                 />
               </div>
             )}
-            {description && (
+            {image ? (
               <p 
                 className={`${hellasFun.className} text-md lg:text-lg leading-relaxed`}
                 style={{ color: textColor }}
               >
                 {description}
               </p>
-            )}
+            ) : <p 
+                className={`${hellasFun.className} text-md lg:text-lg leading-relaxed`}
+                style={{ color: textColor }}
+              >
+                Coming Soon...
+              </p>}
           </div>
         </div>
       </div>

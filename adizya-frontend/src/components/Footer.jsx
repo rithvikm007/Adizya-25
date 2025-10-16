@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { FaLinkedin, FaYoutube, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
 import localFont from "next/font/local";
 
 const pearlJean = localFont({
@@ -63,13 +64,13 @@ const Footer = () => {
       <div className="width-100 flex flex-col lg:flex-row gap-8 justify-between bg-[var(--secondary-color)] p-8 lg:p-20 bg-[url('/imgs/footer-bg.webp')] bg-cover bg-center bg-no-repeat">
         <div className="flex flex-col gap-4">
           {navLinks.map((link, index) => (
-            <Link
+            <a
               key={index}
               className={`${pearlJean.className} text-[#363636] font-medium text-lg lg:text-2xl hover:text-gray-600`}
               href={link.href}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -89,9 +90,10 @@ const Footer = () => {
 
         <div>
           <div className="flex flex-col mb-6 lg:mb-0 lg:flex-row items-center">
-            <img
+            <Image
               src="/imgs/adizya.svg"
               width={adizyaIconSize}
+              height={adizyaIconSize}
               alt="Adizya Logo"
             />
             <h3
