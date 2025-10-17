@@ -80,6 +80,14 @@ const teamsMems = [
     description:
       "Ayush and Finu ensure that every guest feels welcomed and cared for. From coordinating arrival and accommodation to managing refreshment needs, they are the gracious hosts that make ADIZYA inviting and comfortable.",
   },
+  {
+    committee: "LIGHT AND SOUND",
+    image1Src: "/imgs/surya.png",
+    image1Name: "SURYAKANTH",
+    description:
+      "Suryakanth ensures that every sound is perfectly tuned and every light is expertly placed. His technical expertise creates an immersive atmosphere that enhances the festival experience.",
+  },
+  
 ];
 
 const hornset = localFont({ src: "../../../public/fonts//Hornset.ttf" });

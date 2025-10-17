@@ -42,22 +42,34 @@ const TeamSection = ({
           </p>
         </div>
 
-        <div className="flex flex-col items-center">
-          <div className="relative w-[30vw] h-40 md:w-64 md:h-64">
-            <Image
-              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
-              src={image2src}
-              alt={image2name}
-              fill
-              className="object-contain"
-            />
+        {image2src ? (
+          <div className="flex flex-col items-center">
+            <div className="relative w-[30vw] h-40 md:w-64 md:h-64">
+              <Image
+                sizes="(max-width: 768px) 80vw, (max-width: 1200px) 40vw, 25vw"
+                src={image2src}
+                alt={image2name}
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div
+              className={`${pearlJean.className} text-center mt-5 text-2xl md:text-3xl text-[#19213E]`}
+            >
+              {image2name}
+            </div>
           </div>
-          <div
-            className={`${pearlJean.className} text-center mt-5 text-2xl md:text-3xl text-[#19213E]`}
-          >
-            {image2name}
+        ) : (
+          // invisible placeholder to preserve layout when there is no second image
+          <div className="flex flex-col items-center invisible" aria-hidden="true">
+            <div className="relative w-[30vw] h-40 md:w-64 md:h-64" />
+            <div
+              className={`${pearlJean.className} text-center mt-5 text-2xl md:text-3xl`}
+            >
+              {/* empty to keep vertical space */}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <p className="text-2xl mt-4 mb-6 font-hellas-fun text-center mx-5 md:hidden">
