@@ -1,9 +1,10 @@
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../libs/firebase";
 import FormRenderer from "../../../components/FormRenderer";
-import Image from "next/image";
+import QRCarousel from "../../../components/QRCarousel"; 
+import Navbar from "@/components/Navbar";
 
-// This is a server component that fetches the form data
+
 export default async function FormPage({ params }) {
   const { id } = await params;
 
@@ -19,21 +20,23 @@ export default async function FormPage({ params }) {
   }
 
   const formData = formSnap.data();
+  const qrImages = ["/imgs/qr.webp", "/imgs/qr2.webp", "/imgs/qr3.webp"];
+
   return (
+    <>
+    <Navbar />
     <main className="max-w-2xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6 text-center">{formData.title}</h1>
+
       <div className="mt-8 flex flex-col items-center">
-          <p className="text-lg font-semibold mb-2">Scan the QR to complete payment</p>
-          <Image
-            src="/imgs/qr.webp"
-            alt="Payment QR"
-            width={220}
-            height={220}
-            className="rounded-lg shadow-md w-40 sm:w-52 md:w-60 lg:w-72 h-auto"
-            priority
-          />
-        </div>
+        <p className="text-lg font-semibold mb-2 text-center">
+          Scan the QR to complete payment
+        </p>
+        <QRCarousel images={qrImages} />
+      </div>
+
       <FormRenderer id={id} structure={formData.document_structure} />
     </main>
+    </>
   );
 }
