@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import localFont from "next/font/local";
 import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
+import Navbar from "@/components/Navbar";
 
 const LecturesDesktop = dynamic(
   () => import("../../components/LecturesDesktop/LecturesDesktop"),
@@ -34,8 +35,8 @@ const hornset = localFont({
 });
 
 const hellasFunBold = localFont({
-  src: "../../../public/fonts/HellasFunBold.ttf"
-})
+  src: "../../../public/fonts/HellasFunBold.ttf",
+});
 
 const keySpeaker = {
   architect: "AR. DEAN D'CRUZ",
@@ -44,7 +45,6 @@ const keySpeaker = {
   description:
     "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms.",
 };
-
 
 const content = [
   {
@@ -76,7 +76,8 @@ const content = [
     overlay: "849E17",
     backgroundImage: "/imgs/mustafa.webp",
     textColor: "#FFFFFF",
-    description: "A graduate of J. J. College of Architecture, Mumbai, Dean set up his practice in Goa in 1989 and later co-founded the architectural wing of Mozaic Design in 2001. He has conducted numerous workshops and seminars on architecture, planning, and the environment, with his works and articles featured in leading national and international publications. Having designed hundreds of projects across varied scales, he is a recipient of multiple awards. His current focus is on enhancing academic standards by promoting environmental and social awareness in architecture through workshops, master classes, and jury roles."
+    description:
+      "Mohamed Mustafa Ali Sir, an animator and artist based in Bengaluru, brilliantly indulges in spine animations, comic book illustrations, character concepts and 3D sculpting and printing. Creating a trademark style for himself, Sir graduated from NITC in 2018 and obtained a master’s in Illustration and animation from Coventry University. Sir has associated alongside popular studios such as Undo by Neha Nair and Tathvamasi Studios in Bengaluru, wherein he extensively worked on game projects, 2D animation and Art Direction. Sir has also successfully contributed to projects such as SURI: The seventh note displaying his exemplary potential in transforming characters to life."
   },
   {
     architect: "Vivek AV",
@@ -84,7 +85,7 @@ const content = [
     backgroundImage: "/imgs/vivek.webp",
     textColor: "#FFFFFF",
     description:
-      "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
+      "Vivek A V sir, a filmmaker and video producer, has been in the field for more than three years, active in the digital video production industry. Sir initially worked in organisations such as College of Trivandrum, Spinning World Productions, Legendary Wall Studios and Entri before embarking on an independent journey as a filmmaker. Vivek Sir has directed short advertisements, micro dramas, brand designing and product photography apart from conducting workshops and lectures. Sir has been a core part of several short films including a Hindi feature film - Journey of Joy Aazhi.",
   },
   {
     architect: "Yamuna VM",
@@ -92,7 +93,7 @@ const content = [
     backgroundImage: "/imgs/yamuna.webp",
     textColor: "#FFFFFF",
     description:
-      "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
+      "Yamuna V M ma’am, an architectural photographer in her own right, graduated from NITC in 2013, holding a degree in architecture followed by a masters in Interior design from CEPT University. Apart from architecture, Yamuna ma’am’s professional career spans across diverse areas and interests such as photography, art, landscape and product design, having worked in different organisations such as MIDAS, DC and SCMS in Tamil Nadu. She went on to specialise in architectural photography and opened her own practice dubbed ‘YVM Photography.’",
   },
   {
     architect: "Thomas Joseph",
@@ -111,7 +112,7 @@ const lecturers = [
     overlay: "A6360F",
     textColor: "#FFFFFF",
     description:
-      "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms."
+      "A graduate from J. J. college of architecture, Mumbai, set up practice in Goa in 1989, continuing to co-found Mozaic Design architectural wing in 2001. He has conducted numerous workshops and seminars on architecture, planning and environment, with works and articles published in leading magazines in India and abroad. Having designed over 250 houses, 50 hotels, 30 housing complexes, 30 institutions, offices and factories, Dean is recipient of multiple awards. His current efforts are aimed at improving academic standards across the country through awareness of criteria that address environmental and social issues in architecture and planning; all made possible through workshops, master classes and his presence as a jury member on a large number of award platforms.",
   },
   {
     architect: "Ar. Guru Prasanna",
@@ -135,7 +136,7 @@ const lecturers = [
     backgroundImage: "/imgs/sinha.png",
     textColor: "#FAEAE1",
     description:
-      "Technical Director- Urban & Master Planning Lead-India in AECOM. A Government & Public Sector Consulting Leader & Urban Development Expert. Extensive experiences in Project Management for Construction of Mega Government Projects, Master Planning, Healthcare planning, Smart Cities, Municipal Bonds, Infrastructure development plans, Zonal Development Plan, City Development Plan, Tourism, advisory services in Financial Operating Plan, Urban land Management, Policy framework, Development strategies and Municipal/ local planning practices."
+      "Technical Director- Urban & Master Planning Lead-India in AECOM. A Government & Public Sector Consulting Leader & Urban Development Expert. Extensive experiences in Project Management for Construction of Mega Government Projects, Master Planning, Healthcare planning, Smart Cities, Municipal Bonds, Infrastructure development plans, Zonal Development Plan, City Development Plan, Tourism, advisory services in Financial Operating Plan, Urban land Management, Policy framework, Development strategies and Municipal/ local planning practices.",
   },
 ];
 
@@ -166,152 +167,162 @@ const Lectures = () => {
     setRenderMobile(isMobile);
   }, [isMobile]);
 
-  return loading ? <Loading /> : (
-    <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.webp')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
-      <div className="flex flex-col items-center justify-between md:flex-row">
-        <h1
-          className={`${silverCrown.className} text-7xl text-black tracking-wider text-center lg:text-left lg:mb-6 md:ml-10`}
-        >
-          KEY SPEAKER
-        </h1>
-        <h2 className={`text-lg md:text-4xl mt-6 md:mt-0 text-[#3B3B3B] ${hellasFunBold.className} md:mr-10 font-extrabold`}>lecture on 26th Oct, 2:00-3:30 pm</h2>
-      </div>
+  return loading ? (
+    <Loading />
+  ) : (
+    <>
+      {" "}
+      <Navbar />
+      <div className="w-full min-h-screen p-10 bg-[url('/imgs/background.webp')] bg-cover bg-center bg-no-repeat text-white bg-[#F9EAC6]">
+        <div className="flex flex-col items-center justify-between md:flex-row">
+          <h1
+            className={`${silverCrown.className} text-7xl text-black tracking-wider text-center lg:text-left lg:mb-6 md:ml-10`}
+          >
+            KEY SPEAKER
+          </h1>
+          <h2
+            className={`text-lg md:text-4xl mt-6 md:mt-0 text-[#3B3B3B] ${hellasFunBold.className} md:mr-10 font-extrabold`}
+          >
+            lecture on 26th Oct, 2:00-3:30 pm
+          </h2>
+        </div>
 
-      <div className="my-4 md:mx-10 h-auto md:h-[70vh] flex overflow-hidden relative mb-10 md:mb-20">
-        <div className="h-full w-full overflow-hidden relative">
-          <div className="absolute inset-0 hidden md:block">
-            {keySpeaker.backgroundImage ? (
-              <Image
-                src={keySpeaker.backgroundImage}
-                alt="Profile"
-                fill
-                className="object-cover"
-              />
-            ) : (
-              <div className="w-full h-full" />
-            )}
-          </div>
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{ backgroundColor: `#${keySpeaker.backgroundColor}` }}
-          />
-          <div className="relative md:absolute inset-0 p-0 md:p-6 flex flex-col md:flex-row overflow-hidden">
-            <div className="w-full md:w-1/4 h-64 md:h-full relative flex-shrink-0">
-              {keySpeaker.backgroundImage && (
+        <div className="my-4 md:mx-10 h-auto md:h-[70vh] flex overflow-hidden relative mb-10 md:mb-20">
+          <div className="h-full w-full overflow-hidden relative">
+            <div className="absolute inset-0 hidden md:block">
+              {keySpeaker.backgroundImage ? (
                 <Image
                   src={keySpeaker.backgroundImage}
                   alt="Profile"
                   fill
                   className="object-cover"
                 />
+              ) : (
+                <div className="w-full h-full" />
               )}
             </div>
             <div
-              className="flex-1 p-4 sm:p-6 md:p-8 overflow-hidden md:bg-transparent"
+              className="absolute inset-0 hidden md:block"
               style={{ backgroundColor: `#${keySpeaker.backgroundColor}` }}
-            >
-              <h1
-                className={`${hornset.className} text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-center lg:text-left mb-3 sm:mb-4 md:mb-5 !text-white`}
+            />
+            <div className="relative md:absolute inset-0 p-0 md:p-6 flex flex-col md:flex-row overflow-hidden">
+              <div className="w-full md:w-1/4 h-64 md:h-full relative flex-shrink-0">
+                {keySpeaker.backgroundImage && (
+                  <Image
+                    src={keySpeaker.backgroundImage}
+                    alt="Profile"
+                    fill
+                    className="object-cover"
+                  />
+                )}
+              </div>
+              <div
+                className="flex-1 p-4 sm:p-6 md:p-8 overflow-hidden md:bg-transparent"
+                style={{ backgroundColor: `#${keySpeaker.backgroundColor}` }}
               >
-                {keySpeaker.architect}
-              </h1>
-              <p
-                className={`${hellasFun.className} text-center lg:text-left text-base sm:text-xl md:text-2xl lg:text-3xl text-white leading-relaxed`}
-              >
-                {keySpeaker.description}
-              </p>
+                <h1
+                  className={`${hornset.className} text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-center lg:text-left mb-3 sm:mb-4 md:mb-5 !text-white`}
+                >
+                  {keySpeaker.architect}
+                </h1>
+                <p
+                  className={`${hellasFun.className} text-center lg:text-left text-base sm:text-xl md:text-2xl lg:text-3xl text-white leading-relaxed`}
+                >
+                  {keySpeaker.description}
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <h1
-        className={`${silverCrown.className} text-7xl text-black tracking-wider transition-all duration-500 ease-in-out mb-6 text-center lg:text-left md:ml-10`}
-      >
-        {hoveredIndex === null
-          ? "PANEL TALKS"
-          : content[hoveredIndex].architect}
-      </h1>
+        <h1
+          className={`${silverCrown.className} text-7xl text-black tracking-wider transition-all duration-500 ease-in-out mb-6 text-center lg:text-left md:ml-10`}
+        >
+          {hoveredIndex === null
+            ? "PANEL TALKS"
+            : content[hoveredIndex].architect}
+        </h1>
 
-      <div className="lg:m-10 flex flex-col gap-2 lg:flex-row lg:h-[70vh] overflow-hidden relative">
-        {content.map((item, index) => {
-          const isHovered = hoveredIndex === index;
-          const isOtherHovered =
-            hoveredIndex !== null && hoveredIndex !== index;
-          return renderMobile ? (
-            <LecturesMobile
-              key={index}
-              architect={item.architect}
-              image={item.backgroundImage}
-              overlay={item.overlay}
-              description={item.description}
-              textColor={item.textColor}
-              index={index}
-              isHovered={isHovered}
-              isOtherHovered={isOtherHovered}
-              setHoveredIndex={setHoveredIndex}
-              backgroundColor={item.overlay}
-            />
-          ) : (
-            <LecturesDesktop
-              index={index}
-              architect={item.architect}
-              backgroundImage={item.backgroundImage}
-              overlay={item.overlay}
-              description={item.description}
-              key={index}
-              isHovered={isHovered}
-              isOtherHovered={isOtherHovered}
-              setHoveredIndex={setHoveredIndex}
-              textColor={item.textColor}
-              innerTitle={"PANEL TALK"}
-            />
-          );
-        })}
-      </div>
-      <h1
-        className={`${silverCrown.className} mt-10 lg:mt-0 text-7xl text-black tracking-wider transition-all duration-500 ease-in-out mb-6 text-center lg:text-left md:ml-10`}
-      >
-        LECTURERS
-      </h1>
+        <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
+          {content.map((item, index) => {
+            const isHovered = hoveredIndex === index;
+            const isOtherHovered =
+              hoveredIndex !== null && hoveredIndex !== index;
+            return renderMobile ? (
+              <LecturesMobile
+                key={index}
+                architect={item.architect}
+                image={item.backgroundImage}
+                overlay={item.overlay}
+                description={item.description}
+                textColor={item.textColor}
+                index={index}
+                isHovered={isHovered}
+                isOtherHovered={isOtherHovered}
+                setHoveredIndex={setHoveredIndex}
+                backgroundColor={item.overlay}
+              />
+            ) : (
+              <LecturesDesktop
+                index={index}
+                architect={item.architect}
+                backgroundImage={item.backgroundImage}
+                overlay={item.overlay}
+                description={item.description}
+                key={index}
+                isHovered={isHovered}
+                isOtherHovered={isOtherHovered}
+                setHoveredIndex={setHoveredIndex}
+                textColor={item.textColor}
+                innerTitle={"PANEL TALK"}
+              />
+            );
+          })}
+        </div>
+        <h1
+          className={`${silverCrown.className} mt-10 lg:mt-0 text-7xl text-black tracking-wider transition-all duration-500 ease-in-out mb-6 text-center lg:text-left md:ml-10`}
+        >
+          LECTURERS
+        </h1>
 
-      <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
-        {lecturers.map((item, index) => {
-          const isHovered = secondHoveredIndex === index;
-          const isOtherHovered =
-            secondHoveredIndex !== null && secondHoveredIndex !== index;
-          return renderMobile ? (
-            <LecturesMobile
-              key={index}
-              architect={item.architect}
-              image={item.backgroundImage}
-              overlay={item.overlay}
-              description={item.description}
-              textColor={item.textColor}
-              index={index}
-              isHovered={isHovered}
-              isOtherHovered={isOtherHovered}
-              setHoveredIndex={setSecondHoveredIndex}
-              backgroundColor={item.overlay}
-            />
-          ) : (
-            <LecturesDesktop
-              index={index}
-              architect={item.architect}
-              backgroundImage={item.backgroundImage}
-              overlay={item.overlay}
-              description={item.description}
-              key={index}
-              isHovered={isHovered}
-              isOtherHovered={isOtherHovered}
-              setHoveredIndex={setSecondHoveredIndex}
-              textColor={item.textColor}
-              innerTitle={item.architect}
-            />
-          );
-        })}
+        <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
+          {lecturers.map((item, index) => {
+            const isHovered = secondHoveredIndex === index;
+            const isOtherHovered =
+              secondHoveredIndex !== null && secondHoveredIndex !== index;
+            return renderMobile ? (
+              <LecturesMobile
+                key={index}
+                architect={item.architect}
+                image={item.backgroundImage}
+                overlay={item.overlay}
+                description={item.description}
+                textColor={item.textColor}
+                index={index}
+                isHovered={isHovered}
+                isOtherHovered={isOtherHovered}
+                setHoveredIndex={setSecondHoveredIndex}
+                backgroundColor={item.overlay}
+              />
+            ) : (
+              <LecturesDesktop
+                index={index}
+                architect={item.architect}
+                backgroundImage={item.backgroundImage}
+                overlay={item.overlay}
+                description={item.description}
+                key={index}
+                isHovered={isHovered}
+                isOtherHovered={isOtherHovered}
+                setHoveredIndex={setSecondHoveredIndex}
+                textColor={item.textColor}
+                innerTitle={item.architect}
+              />
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ const LecturesDesktop = ({
   description,
   setHoveredIndex,
   textColor,
-  innerTitle
+  innerTitle,
 }) => {
   return (
     <motion.div
@@ -30,8 +30,8 @@ const LecturesDesktop = ({
       className="h-full cursor-pointer overflow-hidden relative"
       initial={false}
       animate={{
-        flex: isHovered ? 100 : isOtherHovered ? 0.1 : 1,
-        opacity: isOtherHovered ? 0 : 1,
+        flex: isHovered ? 100 : isOtherHovered ? 0.9 : 1,
+        opacity: 1,
       }}
       transition={{
         duration: 0.7,
@@ -41,19 +41,29 @@ const LecturesDesktop = ({
       onMouseLeave={() => setHoveredIndex(null)}
     >
       <motion.div
-        className="absolute inset-0"
+        className="absolute inset-0 box-border"
         animate={{
           opacity: isHovered ? 0 : 1,
         }}
         transition={{ duration: 0.4 }}
+        style={{
+          border: `14px solid #${overlay}`,
+        }}
       >
-        {backgroundImage ? (
-          <Image
-            src={backgroundImage}
-            alt="Profile"
-            fill
-            className="object-cover"
+        {isOtherHovered && !isHovered ? (
+          <div
+            className="w-full h-full"
+            style={{ backgroundColor: `#${overlay}` }}
           />
+        ) : backgroundImage ? (
+          <div className="relative w-full h-full overflow-hidden">
+            <Image
+              src={backgroundImage}
+              alt="Profile"
+              fill
+              className="object-cover"
+            />
+          </div>
         ) : (
           <div className="w-full h-full" />
         )}

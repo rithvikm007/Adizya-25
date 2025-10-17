@@ -1,5 +1,6 @@
 import "./style.css";
 import localFont from "next/font/local";
+import Navbar from "@/components/Navbar";
 
 const headerFont = localFont({
   src: "../../../public/font/silver_crown/SILVER CROWN.ttf",
@@ -12,6 +13,7 @@ const formFont = localFont({
 export default function Register() {
   return (
     <div>
+      <Navbar />{" "}
       <main className="px-6 grid grid-rows-3 bg-paper w-full h-screen">
         <div className="row-span-1 flex justify-center p-12 items-center">
           <h1
