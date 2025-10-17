@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      ={" "}
+      <div className="bg-[var(--primary-color)] h-20"></div>
     </nav>
   );
 };
