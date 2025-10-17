@@ -72,28 +72,35 @@ const content = [
       "Ar. Sridevi Changali, Co-founder of masonsinkarchitecture, an architect dedicated to sustainable design and heritage conservation. With her extensive experience in restoring city-level and building-level heritage projects, Sridevi brings a unique blend of ecological sensitivity and modern architectural wisdom to the forefront.",
   },
   {
-    architect: "Coming Soon...",
+    architect: "Muhammad Mustafa Ali",
+    overlay: "849E17",
+    backgroundImage: "/imgs/mustafa.webp",
+    textColor: "#FFFFFF",
+    description: "A graduate of J. J. College of Architecture, Mumbai, Dean set up his practice in Goa in 1989 and later co-founded the architectural wing of Mozaic Design in 2001. He has conducted numerous workshops and seminars on architecture, planning, and the environment, with his works and articles featured in leading national and international publications. Having designed hundreds of projects across varied scales, he is a recipient of multiple awards. His current focus is on enhancing academic standards by promoting environmental and social awareness in architecture through workshops, master classes, and jury roles."
+  },
+  {
+    architect: "Vivek AV",
     overlay: "6777B5",
-    backgroundImage: null,
+    backgroundImage: "/imgs/vivek.webp",
     textColor: "#FFFFFF",
     description:
       "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
   },
   {
-    architect: "Comming Soon...",
-    overlay: "6777F6",
-    backgroundImage: null,
+    architect: "Yamuna VM",
+    overlay: "283A81",
+    backgroundImage: "/imgs/yamuna.webp",
     textColor: "#FFFFFF",
     description:
       "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
   },
   {
-    architect: "Coming Soon...",
-    overlay: "6777F6",
-    backgroundImage: null,
-    textColor: "#FFFFFF",
+    architect: "Thomas Joseph",
+    overlay: "D07189",
+    backgroundImage: "/imgs/thomas.webp",
+    textColor: "#FAEAE1",
     description:
-      "An eminent Indian designer, scenographer and art curator, John Doe is the founder of the Asian Heritage Foundation and the Festival of India. He has designed several museums, cultural centres, hotels and public spaces in India and abroad. He was awarded the Padma Shri in 1986 and the Padma Bhushan in 2003 by the Government of India.",
+      "Technical Director- Urban & Master Planning Lead-India in AECOM. A Government & Public Sector Consulting Leader & Urban Development Expert. Extensive experiences in Project Management for Construction of Mega Government Projects, Master Planning, Healthcare planning, Smart Cities, Municipal Bonds, Infrastructure development plans, Zonal Development Plan, City Development Plan, Tourism, advisory services in Financial Operating Plan, Urban land Management, Policy framework, Development strategies and Municipal/ local planning practices.",
   },
 ];
 
@@ -226,7 +233,7 @@ const Lectures = () => {
           : content[hoveredIndex].architect}
       </h1>
 
-      <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
+      <div className="lg:m-10 flex flex-col gap-2 lg:flex-row lg:h-[70vh] overflow-hidden relative">
         {content.map((item, index) => {
           const isHovered = hoveredIndex === index;
           const isOtherHovered =
