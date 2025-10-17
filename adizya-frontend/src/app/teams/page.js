@@ -7,6 +7,11 @@ import TeamSection from "./section";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 
+const silverCrown = localFont({
+  src: "../../../public/fonts/SILVER_CROWN.ttf",
+  display: "swap",
+});
+
 const teamsMems = [
   {
     committee: "PROGRAM COMMITEE",
@@ -118,7 +123,7 @@ const TeamsPage = () => {
           <h3 className="font-hellas-fun text-2xl md:text-3xl font-hellas-funl">
             MEET THE
           </h3>
-          <h1 className="text-5xl sm:text-6xl md:text-8xl mb-6 lg:mb-10 font-silver-crown tracking-wider text-center text-[#19213E]">
+          <h1 className={`text-5xl sm:text-6xl md:text-8xl mb-6 lg:mb-10 tracking-wider text-center text-[#19213E] ${silverCrown.className}`}>
             ADIZYA 2025 Team Leads
           </h1>
           <div className="text-2xl lg:mx-[12vw] font-hellas-fun text-justify">
@@ -209,7 +214,7 @@ const TeamsPage = () => {
         ))}
 
         <div className="mt-12 px-4 md:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 lg:mb-10 font-silver-crown tracking-wider text-center text-[#19213E]">
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 lg:mb-10 ${silverCrown.className} tracking-wider text-center text-[#19213E]`}>
             ADIZYA 2025 TECH TEAM
           </h1>
           <div
