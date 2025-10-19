@@ -27,7 +27,7 @@ const LecturesDesktop = ({
   return (
     <motion.div
       key={index}
-      className="h-full cursor-pointer overflow-hidden relative"
+      className="h-full cursor-pointer overflow-y-auto relative"
       initial={false}
       animate={{
         flex: isHovered ? 100 : isOtherHovered ? 0.9 : 1,
@@ -122,7 +122,7 @@ const LecturesDesktop = ({
           )}
         </motion.div>
 
-        <div className="flex-1 p-8 overflow-hidden">
+        <div className="flex-1 p-8 overflow-y-auto">
           <motion.div
             className={`text-2xl text-[${textColor}] leading-relaxed`}
             initial={{ x: -100, opacity: 0 }}

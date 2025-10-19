@@ -217,7 +217,7 @@ const Lectures = () => {
                 )}
               </div>
               <div
-                className="flex-1 p-4 sm:p-6 md:p-8 overflow-hidden md:bg-transparent"
+                className="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto md:bg-transparent"
                 style={{ backgroundColor: `#${keySpeaker.backgroundColor}` }}
               >
                 <h1
@@ -243,7 +243,7 @@ const Lectures = () => {
             : content[hoveredIndex].architect}
         </h1>
 
-        <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-hidden relative">
+        <div className="lg:m-10 flex flex-col gap-4 lg:flex-row lg:h-[70vh] overflow-y-auto relative">
           {content.map((item, index) => {
             const isHovered = hoveredIndex === index;
             const isOtherHovered =
