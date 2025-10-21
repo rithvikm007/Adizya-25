@@ -77,6 +77,11 @@ export default function AdminDashboard() {
       </main>
     );
 
+  const headers =
+    submissions.length > 0 && submissions[0].responses
+      ? Object.keys(submissions[0].responses)
+      : [];
+
   return (
     <main className="max-w-6xl mx-auto p-6 flex gap-8">
       {/* Sidebar */}
@@ -138,7 +143,7 @@ export default function AdminDashboard() {
                   <thead className="bg-gray-100 border-b">
                     <tr>
                       <th className="p-2 text-left border-r">#</th>
-                      {Object.keys(submissions[0].responses).map((key) => (
+                      {headers.map((key) => (
                         <th key={key} className="p-2 text-left border-r">
                           {key}
                         </th>
@@ -148,14 +153,11 @@ export default function AdminDashboard() {
                   </thead>
                   <tbody>
                     {submissions.map((sub, index) => (
-                      <tr
-                        key={sub.id}
-                        className="border-b hover:bg-gray-50 transition"
-                      >
+                      <tr key={sub.id} className="border-b hover:bg-gray-50 transition">
                         <td className="p-2 border-r">{index + 1}</td>
-                        {Object.entries(sub.responses).map(([k, v]) => (
-                          <td key={k} className="p-2 border-r">
-                            {String(v)}
+                        {headers.map((key) => (
+                          <td key={key} className="p-2 border-r">
+                            {String(sub.responses[key] ?? "—")}
                           </td>
                         ))}
                         <td className="p-2 text-gray-500">
