@@ -131,7 +131,6 @@ const workshops = [
     color: "#EECE7B",
     secColor: "#CBA045",
     instructor: "Plant Aura",
-    formLink: "https://www.adizya.org/forms/0OcZrb8eWP3GNhKEYIh0",
     desc: <WorkshopDesc3 />,
     contacts: [
       { name: "Reyan", phone: "+91 80893 40470" },
@@ -448,7 +447,7 @@ export default function WorkshopSlider() {
                     </div>
                   </div>
 
-                  {current.formLink && (
+                  {current.formLink ? (
                     <button
                       onClick={() => router.push(current.formLink)}
                       className="w-full py-4 rounded-lg text-xl cursor-pointer font-semibold hover:opacity-90 transition-opacity mt-4"
@@ -459,7 +458,7 @@ export default function WorkshopSlider() {
                     >
                       register here
                     </button>
-                  )}
+                  ) : <h2 className="text-red-600 font-semibold text-center text-lg">Registrations closed.</h2>}
                 </div>
               </div>
             </motion.div>
