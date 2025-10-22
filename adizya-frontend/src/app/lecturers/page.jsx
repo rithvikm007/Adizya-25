@@ -101,7 +101,7 @@ const content = [
     backgroundImage: "/imgs/thomas.webp",
     textColor: "#FAEAE1",
     description:
-      "Technical Director- Urban & Master Planning Lead-India in AECOM. A Government & Public Sector Consulting Leader & Urban Development Expert. Extensive experiences in Project Management for Construction of Mega Government Projects, Master Planning, Healthcare planning, Smart Cities, Municipal Bonds, Infrastructure development plans, Zonal Development Plan, City Development Plan, Tourism, advisory services in Financial Operating Plan, Urban land Management, Policy framework, Development strategies and Municipal/ local planning practices.",
+      "Thomas Joseph sir is an ardent product designer, entrepreneur and interior designer with an impressive work record and carousel of achievements. Having graduated with a degree in architecture for NITC, he went on to pursue masters in Furniture Design from NID Ahmedabad during which he received the opportunity to study in Zurich University of Arts as an exchange student. Currently, Thomas sir engages as the founder of Gallery Found Objects and the Humming Trees Homestays in Kerala alongside a partnership in the architectural firm Studio Design narrative.",
   },
 ];
 
