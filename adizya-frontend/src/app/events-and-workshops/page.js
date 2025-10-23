@@ -93,7 +93,6 @@ const workshops = [
     color: "#D7570E",
     secColor: "#953600",
     instructor: "Arta Raituma",
-    formLink: "https://www.adizya.org/forms/Ps797VKJr6AxJs18gloo",
     desc: <WorkshopDesc1 />,
     contacts: [
       { name: "Reyan", phone: "+91 80893 40470" },
@@ -458,7 +457,15 @@ export default function WorkshopSlider() {
                     >
                       register here
                     </button>
-                  ) : <h2 className="text-red-600 font-semibold text-center text-lg">Registrations closed.</h2>}
+                  ) : <button
+                      className="w-full py-4 rounded-lg text-xl text-red-600 cursor-not-allowed font-semibold hover:opacity-90 transition-opacity mt-4"
+                      style={{
+                        backgroundColor: current.secColor,
+                      }}
+                      disabled={true}
+                    >
+                      registration closed
+                    </button>}
                 </div>
               </div>
             </motion.div>

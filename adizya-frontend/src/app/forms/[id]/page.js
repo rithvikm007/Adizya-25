@@ -3,10 +3,34 @@ import { db } from "../../../libs/firebase";
 import FormRenderer from "../../../components/FormRenderer";
 import QRCarousel from "../../../components/QRCarousel"; 
 import Navbar from "@/components/Navbar";
+import localFont from "next/font/local";
+const disabled = ["Ps797VKJr6AxJs18gloo","0OcZrb8eWP3GNhKEYIh0"]
 
+const pearlJean = localFont({
+  src: "../../../../public/fonts/pearl-jean.ttf",
+  display: "swap",
+});
 
 export default async function FormPage({ params }) {
   const { id } = await params;
+  if(disabled.includes(id)){
+    return (
+    <>
+      <Navbar />
+      <main className="flex flex-col items-center justify-center min-h-screen bg-[#f9eac6] px-4">
+        <div className="bg-[#efc971] shadow-md rounded-xl p-8 max-w-2xl text-center">
+          <h1 className={`text-3xl md:text-4xl font-bold ${pearlJean.className} text-red-600 mb-4`}>
+            Registrations Closed
+          </h1>
+          <p className="text-gray-700 mb-6 text-lg">
+            We're sorry, registration for this form is no longer open. 
+            Thank you for your interest!
+          </p>
+        </div>
+      </main>
+    </>
+  );
+  }
 
   const formRef = doc(db, "forms", id);
   const formSnap = await getDoc(formRef);
