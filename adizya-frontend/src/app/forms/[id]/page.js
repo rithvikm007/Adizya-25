@@ -23,7 +23,7 @@ export default async function FormPage({ params }) {
             Registrations Closed
           </h1>
           <p className="text-gray-700 mb-6 text-lg">
-            We're sorry, registration for this form is no longer open. 
+            We&apos;re sorry, registration for this form is no longer open. 
             Thank you for your interest!
           </p>
         </div>
